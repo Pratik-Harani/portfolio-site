@@ -6,12 +6,6 @@ export const profile = {
   email: "hello@johndoe.dev",
   location: "Based in London, UK",
   availability: "Open to new opportunities",
-  introduction:
-    "I am a second-year Computer Science student who enjoys creating calm, useful digital products and learning how good software comes together.",
-  about: [
-    "I am Pratik, a Computer Science student interested in the space between technology, design, and everyday life. I enjoy taking a vague idea and giving it a clear, friendly shape.",
-    "Right now, I am building my foundations across full-stack development and product thinking. I care about the details that make software feel simple to use and satisfying to return to.",
-  ],
 };
 
 export const hero = {
@@ -21,12 +15,18 @@ export const hero = {
     highlightedText: "Software Engineer",
     afterHighlight: "",
   },
+  introduction:
+    "I am a second-year Computer Science student who enjoys creating calm, useful digital products and learning how good software comes together.",
 };
 
-export const skills = [
+export const aboutSection = {
+  headline: ["A curious builder with a people-first mindset."],
+  description: ["I am Pratik, a Computer Science student interested in the space between technology, design, and everyday life. I enjoy taking a vague idea and giving it a clear, friendly shape.",
+    "Right now, I am building my foundations across full-stack development and product thinking. I care about the details that make software feel simple to use and satisfying to return to.",],
+  skills: [
   "TypeScript", "React", "Next.js", "Python", "Java", "Node.js", "Tailwind CSS",
-  "PostgreSQL", "Git", "Figma", "REST APIs", "Problem solving",
-];
+  "PostgreSQL", "Git", "Figma", "REST APIs", "Problem solving",],
+};
 
 export const projects = [
   {

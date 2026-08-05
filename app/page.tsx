@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { experience, hero, profile, projects, skills, socialLinks } from "./portfolio-data";
+import { aboutSection, experience, hero, profile, projects, skills, socialLinks } from "./portfolio-data";
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 
@@ -112,7 +112,7 @@ export default function Home() {
             )}
             {hero.headline.afterHighlight && <span> {hero.headline.afterHighlight}</span>}
           </h1>
-          <p className="hero-intro">{profile.introduction}</p>
+          <p className="hero-intro">{hero.introduction}</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#projects">See my work <span>↓</span></a>
             <a className="text-link" href={`mailto:${profile.email}`}>Let&apos;s talk <ArrowIcon /></a>
@@ -130,18 +130,18 @@ export default function Home() {
       <section className="section about-section" id="about">
         <div className="section-heading reveal">
           <p className="section-number">01 / ABOUT</p>
-          <h2>A curious builder with a <em>people-first</em> mindset.</h2>
+          <h2>{aboutSection.headline}</h2>
         </div>
         <div className="about-layout">
           <div className="about-copy reveal">
-            <p>{profile.about[0]}</p>
-            <p>{profile.about[1]}</p>
+            <p>{aboutSection.description[0]}</p>
+            <p>{aboutSection.description[1]}</p>
             <a className="text-link" href="#contact">More about me <ArrowIcon /></a>
           </div>
           <div className="skills-panel reveal">
             <p className="panel-label">Toolbox</p>
             <div className="skill-list">
-              {skills.map((skill) => <span key={skill}>{skill}</span>)}
+              {aboutSection.skills.map((skill) => <span key={skill}>{skill}</span>)}
             </div>
           </div>
         </div>
