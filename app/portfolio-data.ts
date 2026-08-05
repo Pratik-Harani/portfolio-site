@@ -1,7 +1,7 @@
 
 export const profile = {
-  name: "John Doe",
-  firstName: "John",
+  name: "Pratik Harani",
+  firstName: "Pratik",
   status: "Computer Science student · Available for opportunities",
   email: "hello@johndoe.dev",
   location: "Based in London, UK",
@@ -9,9 +9,18 @@ export const profile = {
   introduction:
     "I am a second-year Computer Science student who enjoys creating calm, useful digital products and learning how good software comes together.",
   about: [
-    "I am John, a Computer Science student interested in the space between technology, design, and everyday life. I enjoy taking a vague idea and giving it a clear, friendly shape.",
+    "I am Pratik, a Computer Science student interested in the space between technology, design, and everyday life. I enjoy taking a vague idea and giving it a clear, friendly shape.",
     "Right now, I am building my foundations across full-stack development and product thinking. I care about the details that make software feel simple to use and satisfying to return to.",
   ],
+};
+
+export const hero = {
+  headline: {
+    beforeHighlight: "Hi, I'm Pratik Harani",
+    // Set this to an empty string to show a headline with no highlighted text.
+    highlightedText: "Software Engineer",
+    afterHighlight: "",
+  },
 };
 
 export const skills = [

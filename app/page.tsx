@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { experience, profile, projects, skills, socialLinks } from "./portfolio-data";
+import { experience, hero, profile, projects, skills, socialLinks } from "./portfolio-data";
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 
@@ -105,11 +105,12 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy reveal is-visible">
-          <p className="eyebrow"><span /> {profile.status}</p>
-          <h1>
-            Hello, I&apos;m <em>{profile.firstName}.</em>
-            <br />
-            I turn ideas into thoughtful digital experiences.
+          <h1 className="hero-title">
+            <span>{hero.headline.beforeHighlight}</span>
+            {hero.headline.highlightedText && (
+              <span className="hero-highlight"> {hero.headline.highlightedText}</span>
+            )}
+            {hero.headline.afterHighlight && <span> {hero.headline.afterHighlight}</span>}
           </h1>
           <p className="hero-intro">{profile.introduction}</p>
           <div className="hero-actions">
@@ -119,16 +120,11 @@ export default function Home() {
         </div>
 
         <div className="hero-aside reveal is-visible">
-          <div className="portrait-wrap">
-            <Placeholder label="your photo" className="portrait" />
-            <p className="portrait-note">{profile.location}<br />{profile.availability}</p>
-          </div>
-          <div className="hero-metrics">
-            <div><strong>04</strong><span>projects<br />selected</span></div>
-            <div><strong>02</strong><span>years<br />learning</span></div>
-          </div>
+          <span className="hero-circle hero-circle-large" aria-hidden="true" />
+          <span className="hero-circle hero-circle-medium" aria-hidden="true" />
+          <span className="hero-circle hero-circle-small" aria-hidden="true" />
+          <Placeholder label="your portrait" className="portrait portrait-cutout" />
         </div>
-        <p className="scroll-cue">Scroll to explore <span>↓</span></p>
       </section>
 
       <section className="section about-section" id="about">
