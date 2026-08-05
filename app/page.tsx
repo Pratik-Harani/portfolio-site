@@ -27,19 +27,25 @@ export default function Home() {
       .map((id) => document.getElementById(id))
       .filter((section): section is HTMLElement => section !== null);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    const updateActiveSection = () => {
+      const readingPosition = window.scrollY + window.innerHeight * 0.35;
+      let currentSection = sections[0]?.id ?? "about";
 
-        if (visibleEntry) setActiveSection(visibleEntry.target.id);
-      },
-      { rootMargin: "-28% 0px -58% 0px", threshold: [0.05, 0.2, 0.5] },
-    );
+      sections.forEach((section) => {
+        if (section.offsetTop <= readingPosition) currentSection = section.id;
+      });
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+      setActiveSection(currentSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   useEffect(() => {
