@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { aboutSection, experience, hero, profile, projects, skills, socialLinks } from "./portfolio-data";
+import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 
@@ -123,7 +123,7 @@ export default function Home() {
           <span className="hero-circle hero-circle-large" aria-hidden="true" />
           <span className="hero-circle hero-circle-medium" aria-hidden="true" />
           <span className="hero-circle hero-circle-small" aria-hidden="true" />
-          <Placeholder label="your portrait" className="portrait portrait-cutout" />
+          <img src="cutout_test.png" width="200" height="250" className="portrait portrait-cutout" />
         </div>
       </section>
 

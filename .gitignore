@@ -2,6 +2,7 @@
 
 # project-specific
 AGENTS.md
+public/cutout_test.png
 
 # dependencies
 /node_modules
@@ -42,4 +43,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-AGENTS.md
+
+
