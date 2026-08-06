@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
+import PillNav from "./components/PillNav";
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 
@@ -20,7 +21,6 @@ function Placeholder({ label, className = "" }: { label: string; className?: str
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const sections = sectionIds
@@ -66,42 +66,16 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  const handleNavClick = () => setMenuOpen(false);
-
   return (
     <main>
-      <header className="site-header">
-        <a className="wordmark" href="#top" onClick={handleNavClick}>
-          <span className="wordmark-dot" />
-          {profile.firstName.toLowerCase()}.dev
-        </a>
-
-        <button
-          aria-expanded={menuOpen}
-          aria-label="Toggle navigation menu"
-          className="menu-button"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span />
-          <span />
-        </button>
-
-        <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="Primary navigation">
-          {sectionIds.map((section) => (
-            <a
-              className={activeSection === section ? "is-active" : ""}
-              href={`#${section}`}
-              key={section}
-              onClick={handleNavClick}
-            >
-              {section}
-            </a>
-          ))}
-          <a href={socialLinks.cv.url} onClick={handleNavClick}>
-            cv <ArrowIcon />
-          </a>
-        </nav>
-      </header>
+      <PillNav
+        items={[
+          ...sectionIds.map((section) => ({ label: section, href: `#${section}` })),
+          { label: "CV", href: socialLinks.cv.url, ariaLabel: "View CV" },
+        ]}
+        activeHref={`#${activeSection}`}
+        initialLoadAnimation
+      />
 
       <section className="hero" id="top">
         <div className="hero-copy reveal is-visible">
@@ -123,7 +97,7 @@ export default function Home() {
           <span className="hero-circle hero-circle-large" aria-hidden="true" />
           <span className="hero-circle hero-circle-medium" aria-hidden="true" />
           <span className="hero-circle hero-circle-small" aria-hidden="true" />
-          <img src="cutout_test.png" width="200" height="250" className="portrait portrait-cutout" />
+          <img src="cutout_test.png" width="200" height="250" className="portrait portrait-cutout" alt="Portrait of Pratik Harani" />
         </div>
       </section>
 
