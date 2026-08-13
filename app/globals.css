@@ -2,13 +2,13 @@
 
 /* Light-theme tokens. Add a [data-theme="dark"] block here when a dark variant is needed. */
 :root {
-  --ink: #273638;
-  --ink-soft: #607174;
-  --ink-faint: #849193;
-  --paper: #fffbf3;
-  --paper-deep: #f7efe1;
-  --cream: #facfad;
-  --peach: #f8bd7f;
+  --ink: #232323;
+  --ink-soft: #747474;
+  --ink-faint: #949595;
+  --paper: #ffffff;
+  --paper-deep: #efefef;
+  --cream: #fce9da;
+  --peach: #ffd9b0;
   --line: rgba(62, 78, 80, 0.18);
   --font-display: "Futura", "Trebuchet MS", Helvetica, Arial, sans-serif;
   --font-body: Helvetica, Arial, sans-serif;
