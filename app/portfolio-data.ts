@@ -10,7 +10,7 @@ export const profile = {
 
 export const hero = {
   headline: {
-    beforeHighlight: "Hi, I'm Pratik Harani",
+    beforeHighlight: "Hi, I'm Pratik",
     // Set this to an empty string to show a headline with no highlighted text.
     highlightedText: "Software Engineer",
     afterHighlight: "",
