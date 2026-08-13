@@ -74,7 +74,7 @@ export default function Home() {
           { label: "CV", href: socialLinks.cv.url, ariaLabel: "View CV" },
         ]}
         activeHref={`#${activeSection}`}
-        initialLoadAnimation
+        initialLoadAnimation={false}
       />
 
       <section className="hero" id="top">
