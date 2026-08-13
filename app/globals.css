@@ -41,8 +41,8 @@ button { font: inherit; }
 h1, h2, h3, p { margin-top: 0; }
 h1, h2, h3 { font-family: var(--font-display); letter-spacing: -.055em; }
 .hero-title { font-size: clamp(3.6rem, 6.25vw, 7.15rem); font-weight: 700; line-height: .94; margin: 0 0 2.1rem; max-width: 9.7em; text-wrap: balance; }
-.hero-highlight { color: var(--ink-soft); }
-em { color: #bf7d45; font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.08em; }
+.hero-highlight { color: var(--pink); }
+em { color: var(--pink); font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.08em; }
 .hero-intro { color: var(--ink-soft); font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.65; max-width: 510px; }
 .hero-actions { align-items: center; display: flex; gap: 1.6rem; margin-top: 2.5rem; }
 .button { align-items: center; display: inline-flex; font-size: .78rem; font-weight: 700; gap: 1.4rem; letter-spacing: .06em; padding: 1rem 1.25rem; text-transform: uppercase; transition: transform .22s ease, background .22s ease; }
@@ -95,19 +95,19 @@ em { color: #bf7d45; font-family: Georgia, "Times New Roman", serif; font-weight
 .project-footer li { color: var(--ink-faint); font-size: .68rem; }
 .project-footer a { align-items: center; display: flex; font-size: .7rem; font-weight: 700; gap: .4rem; letter-spacing: .07em; text-transform: uppercase; }
 
-.experience-section { background: var(--ink); color: var(--paper); }
-.experience-section .section-number { color: var(--light-blue); }
+.experience-section { background: var(--paper-deep); color: var(--ink); }
+.experience-section .section-number { color: var(--ink-soft); }
 .experience-section .section-heading { max-width: 700px; }
-.experience-list { border-top: 1px solid rgba(255, 251, 243, .3); margin-top: 4.5rem; }
-.experience-row { align-items: center; border-bottom: 1px solid rgba(255, 251, 243, .2); display: grid; gap: 1.4rem; grid-template-columns: 2.2rem 4.7rem minmax(0, 1fr) minmax(170px, .55fr); padding: 1.7rem 0; transition: padding .22s ease, background .22s ease; }
+.experience-list { border-top: 1px solid var(--ink-faint); margin-top: 4.5rem; }
+.experience-row { align-items: center; border-bottom: 1px solid var(--line); display: grid; gap: 1.4rem; grid-template-columns: 2.2rem 4.7rem minmax(0, 1fr) minmax(170px, .55fr); padding: 1.7rem 0; transition: padding .22s ease, background .22s ease; }
 .experience-row:hover { background: rgba(255, 255, 255, .045); padding-left: .8rem; padding-right: .8rem; }
-.experience-index { color: var(--light-blue); font-size: .7rem; font-weight: 700; }
+.experience-index { color: var(--ink-soft); font-size: .7rem; font-weight: 700; }
 .company-logo { aspect-ratio: 1; background: var(--pink); color: var(--ink); width: 4.2rem; }
 .company-logo span { font-size: .48rem; }.company-logo strong { font-size: .55rem; }
-.experience-role h3 { font-size: 1.35rem; margin: 0 0 .35rem; }.experience-role p, .experience-meta { color: rgba(255, 251, 243, .67); font-size: .8rem; line-height: 1.5; margin: 0; }
-.experience-meta { display: flex; flex-direction: column; gap: .2rem; }.experience-meta strong { color: var(--paper); font-size: .82rem; }
+.experience-role h3 { font-size: 1.35rem; margin: 0 0 .35rem; }.experience-role p, .experience-meta { color: var(--ink-faint); font-size: .8rem; line-height: 1.5; margin: 0; }
+.experience-meta { display: flex; flex-direction: column; gap: .2rem; }.experience-meta strong { color: var(--ink-soft); font-size: .82rem; }
 
-.contact-section { background: var(--light-blue); min-height: min(77vh, 760px); overflow: hidden; padding: clamp(6rem, 11vw, 10rem) 5.5vw; position: relative; }
+.contact-section { background: var(--paper); min-height: min(77vh, 760px); overflow: hidden; padding: clamp(6rem, 11vw, 10rem) 5.5vw; position: relative; }
 .contact-content { max-width: 900px; position: relative; z-index: 1; }.contact-kicker { color: var(--ink-soft); font-size: .95rem; margin: 2.5rem 0 .5rem; }
 .contact-content h2 { font-size: clamp(3.3rem, 7vw, 7.5rem); line-height: .92; margin: 0; }.contact-email { border-bottom: 2px solid var(--ink); display: inline-flex; font-family: var(--font-display); font-size: clamp(1.15rem, 2.4vw, 2.35rem); font-weight: 700; gap: .6rem; margin-top: 3.2rem; padding-bottom: .28rem; transition: color .2s ease; }.contact-email:hover { color: #bf7d45; }
 .contact-links { display: flex; gap: 1.8rem; margin-top: 3rem; }.contact-links a { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }.contact-links a:hover { text-decoration: underline; }
