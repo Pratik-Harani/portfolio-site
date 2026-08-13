@@ -97,7 +97,7 @@ export default function Home() {
           <span className="hero-circle hero-circle-large" aria-hidden="true" />
           <span className="hero-circle hero-circle-medium" aria-hidden="true" />
           <span className="hero-circle hero-circle-small" aria-hidden="true" />
-          <img src="cutout_test.png" width="200" height="250" className="portrait portrait-cutout" alt="Portrait of Pratik Harani" />
+          <img src="cutout_test2.png" width="200" height="250" className="portrait portrait-cutout" alt="Portrait of Pratik Harani" />
         </div>
       </section>
 
