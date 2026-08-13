@@ -56,7 +56,7 @@ em { color: #bf7d45; font-family: Georgia, "Times New Roman", serif; font-weight
 .placeholder span { font-size: .62rem; font-weight: 700; opacity: .65; }
 .placeholder strong { font-family: var(--font-display); font-size: .82rem; margin-top: .32rem; }
 /*.portrait { aspect-ratio: 1; box-shadow: 14px 14px 0 var(--ink); width: 100%; }*/
-.portrait-cutout { aspect-ratio: 0.67 / 1; bottom: -1.5rem; /*clip-path: ellipse(43% 51% at 50% 50%);*/ left: 50%; max-height: 630px; max-width: 440px; position: absolute; transform: translateX(-50%); width: min(100%, 43vw); z-index: 2; }
+.portrait-cutout { aspect-ratio: 929 / 1132; bottom: -0.5rem; clip-path: ellipse(43% 51% at 50% 50%); left: 50%; /*max-height: 630px; max-width: 440px;*/ position: absolute; transform: translateX(-50%); width: min(100%, 43vw); z-index: 2; }
 .hero-circle { border: 1px solid rgba(62, 78, 80, .2); border-radius: 50%; display: block; position: absolute; }
 .hero-circle-large { height: min(37vw, 540px); right: -8%; top: 2%; width: min(37vw, 540px); }
 .hero-circle-medium { background: var(--cream); height: clamp(3rem, 6vw, 5.8rem); left: 3%; opacity: .75; top: 18%; width: clamp(3rem, 6vw, 5.8rem); }
