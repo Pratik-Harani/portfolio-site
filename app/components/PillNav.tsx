@@ -75,7 +75,7 @@ export default function PillNav({
       const { x, width } = getTargetBounds();
       indicatorTimelineRef.current?.kill();
       const timeline = gsap.timeline();
-      timeline.to(indicator, { x, width, duration: 0.45, ease, overwrite: "auto" }, 0);
+      timeline.to(indicator, { x, width, duration: 0.25, ease: "power1.inOut", overwrite: "auto" }, 0);
       timeline.call(() => setSettledActiveHref(undefined), undefined, 0.18);
       timeline.call(() => setSettledActiveHref(activeHref), undefined, 0.36);
       indicatorTimelineRef.current = timeline;
