@@ -44,6 +44,8 @@ export default function PillNav({
   onMobileMenuClick,
   initialLoadAnimation = true,
 }: PillNavProps) {
+  const primaryItems = items.slice(0, -1);
+  const trailingItem = items.at(-1);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [settledActiveHref, setSettledActiveHref] = useState(activeHref);
   const pillRefs = useRef<Array<HTMLAnchorElement | null>>([]);
@@ -59,7 +61,7 @@ export default function PillNav({
   useLayoutEffect(() => {
     const navItems = navItemsRef.current;
     const indicator = activeIndicatorRef.current;
-    const activeIndex = items.findIndex((item) => item.href === activeHref);
+    const activeIndex = primaryItems.findIndex((item) => item.href === activeHref);
     const target = pillRefs.current[activeIndex];
     const activeLabel = labelRefs.current[activeIndex];
 
@@ -176,7 +178,7 @@ export default function PillNav({
         <div className={styles.navItems} ref={navItemsRef}>
           <span className={styles.activeIndicator} aria-hidden="true" ref={activeIndicatorRef} />
           <ul className={styles.list}>
-            {items.map((item, index) => (
+            {primaryItems.map((item, index) => (
               <li key={item.href}>
                 <a
                   className={`${styles.pill}${settledActiveHref === item.href ? ` ${styles.isActive}` : ""}`}
@@ -202,6 +204,22 @@ export default function PillNav({
             ))}
           </ul>
         </div>
+        {trailingItem && (
+          <a
+            className={styles.trailingPill}
+            href={trailingItem.href}
+            aria-label={trailingItem.ariaLabel ?? trailingItem.label}
+            onMouseEnter={() => animateLabel(items.length - 1, true)}
+            onMouseLeave={() => animateLabel(items.length - 1, false)}
+            onClick={() => animateLabel(items.length - 1, false)}
+          >
+            <span className={styles.labelStack}>
+              <span className={styles.pillLabel} ref={(element) => { labelRefs.current[items.length - 1] = element; }}>
+                {trailingItem.label}
+              </span>
+            </span>
+          </a>
+        )}
 
         <button
           aria-expanded={isMobileMenuOpen}
