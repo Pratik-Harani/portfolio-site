@@ -6,6 +6,9 @@ import styles from "./PillNav.module.css";
 
 const activeIndicatorDuration = 0.25;
 const activeLabelColorDuration = activeIndicatorDuration * 0.48;
+const hoverLabelRaise = 2;
+const hoverLabelDuration = 0.22;
+const hoverLabelEase = "power2.out";
 
 export type PillNavItem = {
   label: string;
@@ -40,10 +43,9 @@ export default function PillNav({
 }: PillNavProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [settledActiveHref, setSettledActiveHref] = useState(activeHref);
-  const circleRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const pillRefs = useRef<Array<HTMLAnchorElement | null>>([]);
-  const timelineRefs = useRef<Array<gsap.core.Timeline | null>>([]);
-  const activeTweenRefs = useRef<Array<gsap.core.Tween | null>>([]);
+  const labelRefs = useRef<Array<HTMLSpanElement | null>>([]);
+  const labelTweenRefs = useRef<Array<gsap.core.Tween | null>>([]);
   const hamburgerRef = useRef<HTMLButtonElement | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const navItemsRef = useRef<HTMLDivElement | null>(null);
@@ -56,8 +58,19 @@ export default function PillNav({
     const indicator = activeIndicatorRef.current;
     const activeIndex = items.findIndex((item) => item.href === activeHref);
     const target = pillRefs.current[activeIndex];
+    const activeLabel = labelRefs.current[activeIndex];
 
     if (!navItems || !indicator || !target) return;
+
+    if (activeLabel) {
+      labelTweenRefs.current[activeIndex]?.kill();
+      labelTweenRefs.current[activeIndex] = gsap.to(activeLabel, {
+        y: 0,
+        duration: hoverLabelDuration,
+        ease: hoverLabelEase,
+        overwrite: "auto",
+      });
+    }
 
     const getTargetBounds = () => {
       const navRect = navItems.getBoundingClientRect();
@@ -93,44 +106,6 @@ export default function PillNav({
   }, [activeHref, ease, items]);
 
   useEffect(() => {
-    const layout = () => {
-      circleRefs.current.forEach((circle, index) => {
-        if (!circle?.parentElement) return;
-
-        const pill = circle.parentElement;
-        const { width, height } = pill.getBoundingClientRect();
-        const radius = ((width * width) / 4 + height * height) / (2 * height);
-        const diameter = Math.ceil(2 * radius) + 2;
-        const delta = Math.ceil(radius - Math.sqrt(Math.max(0, radius * radius - (width * width) / 4))) + 1;
-        const originY = diameter - delta;
-
-        gsap.set(circle, {
-          width: diameter,
-          height: diameter,
-          bottom: -delta,
-          xPercent: -50,
-          scale: 0,
-          transformOrigin: `50% ${originY}px`,
-        });
-
-        const label = pill.querySelector<HTMLElement>(`.${styles.pillLabel}`);
-        const hoverLabel = pill.querySelector<HTMLElement>(`.${styles.pillLabelHover}`);
-        gsap.set(label, { y: 0 });
-        gsap.set(hoverLabel, { y: height + 12, opacity: 0 });
-
-        timelineRefs.current[index]?.kill();
-        const timeline = gsap.timeline({ paused: true });
-        timeline.to(circle, { scale: 1.2, xPercent: -50, duration: 2, ease, overwrite: "auto" }, 0);
-        timeline.to(label, { y: -(height + 8), duration: 2, ease, overwrite: "auto" }, 0);
-        timeline.to(hoverLabel, { y: 0, opacity: 1, duration: 2, ease, overwrite: "auto" }, 0);
-        timelineRefs.current[index] = timeline;
-      });
-    };
-
-    layout();
-    window.addEventListener("resize", layout);
-    document.fonts?.ready.then(layout).catch(() => undefined);
-
     if (mobileMenuRef.current) {
       gsap.set(mobileMenuRef.current, { visibility: "hidden", opacity: 0 });
     }
@@ -143,16 +118,17 @@ export default function PillNav({
       );
     }
 
-    return () => window.removeEventListener("resize", layout);
-  }, [ease, initialLoadAnimation, items]);
+  }, [ease, initialLoadAnimation]);
 
-  const animatePill = (index: number, progress: number, duration: number) => {
-    const timeline = timelineRefs.current[index];
-    if (!timeline) return;
-    activeTweenRefs.current[index]?.kill();
-    activeTweenRefs.current[index] = timeline.tweenTo(timeline.duration() * progress, {
-      duration,
-      ease,
+  const animateLabel = (index: number, raised: boolean) => {
+    const label = labelRefs.current[index];
+    if (!label) return;
+
+    labelTweenRefs.current[index]?.kill();
+    labelTweenRefs.current[index] = gsap.to(label, {
+      y: raised ? -hoverLabelRaise : 0,
+      duration: hoverLabelDuration,
+      ease: hoverLabelEase,
       overwrite: "auto",
     });
   };
@@ -205,17 +181,18 @@ export default function PillNav({
                   aria-label={item.ariaLabel ?? item.label}
                   aria-current={activeHref === item.href ? "page" : undefined}
                   onMouseEnter={() => {
-                    if (activeHref !== item.href) animatePill(index, 1, 0.3);
+                    if (activeHref !== item.href) animateLabel(index, true);
                   }}
                   onMouseLeave={() => {
-                    if (activeHref !== item.href) animatePill(index, 0, 0.2);
+                    if (activeHref !== item.href) animateLabel(index, false);
                   }}
+                  onClick={() => animateLabel(index, false)}
                   ref={(element) => { pillRefs.current[index] = element; }}
                 >
-                  <span className={styles.hoverCircle} aria-hidden="true" ref={(element) => { circleRefs.current[index] = element; }} />
                   <span className={styles.labelStack}>
-                    <span className={styles.pillLabel}>{item.label}</span>
-                    <span className={styles.pillLabelHover} aria-hidden="true">{item.label}</span>
+                    <span className={styles.pillLabel} ref={(element) => { labelRefs.current[index] = element; }}>
+                      {item.label}
+                    </span>
                   </span>
                 </a>
               </li>

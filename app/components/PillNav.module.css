@@ -52,18 +52,8 @@
   padding: 0 var(--pill-pad-x);
   position: relative;
   text-transform: uppercase;
-  transition: background-color 0s linear, color var(--active-label-color-duration) ease;
+  transition: color var(--active-label-color-duration) ease;
   white-space: nowrap;
-}
-
-/*
- * A clipped, transformed circle is anti-aliased against its parent's background.
- * Once its 300ms GSAP reveal has filled the pill, match that background to the
- * circle so no pill-colour fringe can remain at the clipped edge.
- */
-.pill:hover {
-  background-color: var(--base);
-  transition-delay: .3s;
 }
 
 .activeIndicator {
@@ -78,21 +68,8 @@
   z-index: 1;
 }
 
-.hoverCircle {
-  background: var(--base);
-  border-radius: 50%;
-  bottom: 0;
-  display: block;
-  left: 50%;
-  pointer-events: none;
-  position: absolute;
-  will-change: transform;
-  z-index: 1;
-}
-
 .labelStack { display: inline-block; line-height: 1; position: relative; z-index: 2; }
 .pillLabel { display: inline-block; line-height: 1; will-change: transform; }
-.pillLabelHover { color: var(--hover-text); left: 0; line-height: 1; position: absolute; top: 0; will-change: transform, opacity; }
 
 .pill.isActive { color: var(--hover-text); }
 
