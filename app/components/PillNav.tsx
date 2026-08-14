@@ -4,6 +4,9 @@ import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from
 import { gsap } from "gsap";
 import styles from "./PillNav.module.css";
 
+const activeIndicatorDuration = 0.25;
+const activeLabelColorDuration = activeIndicatorDuration * 0.48;
+
 export type PillNavItem = {
   label: string;
   href: string;
@@ -75,9 +78,13 @@ export default function PillNav({
       const { x, width } = getTargetBounds();
       indicatorTimelineRef.current?.kill();
       const timeline = gsap.timeline();
-      timeline.to(indicator, { x, width, duration: 0.25, ease: "power1.inOut", overwrite: "auto" }, 0);
-      timeline.call(() => setSettledActiveHref(undefined), undefined, 0.18);
-      timeline.call(() => setSettledActiveHref(activeHref), undefined, 0.36);
+      timeline.to(indicator, { x, width, duration: activeIndicatorDuration, ease, overwrite: "auto" }, 0);
+      timeline.call(() => setSettledActiveHref(undefined), undefined, activeIndicatorDuration * 0.42);
+      timeline.call(
+        () => setSettledActiveHref(activeHref),
+        undefined,
+        activeIndicatorDuration - activeLabelColorDuration,
+      );
       indicatorTimelineRef.current = timeline;
     }
 
@@ -181,6 +188,7 @@ export default function PillNav({
     "--pill-bg": pillColor,
     "--hover-text": hoveredPillTextColor,
     "--pill-text": pillTextColor ?? baseColor,
+    "--active-label-color-duration": `${activeLabelColorDuration}s`,
   } as CSSProperties;
 
   return (
