@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import { gsap } from "gsap";
 import styles from "./PillNav.module.css";
 
@@ -36,12 +36,54 @@ export default function PillNav({
   initialLoadAnimation = true,
 }: PillNavProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [settledActiveHref, setSettledActiveHref] = useState(activeHref);
   const circleRefs = useRef<Array<HTMLSpanElement | null>>([]);
+  const pillRefs = useRef<Array<HTMLAnchorElement | null>>([]);
   const timelineRefs = useRef<Array<gsap.core.Timeline | null>>([]);
   const activeTweenRefs = useRef<Array<gsap.core.Tween | null>>([]);
   const hamburgerRef = useRef<HTMLButtonElement | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const navItemsRef = useRef<HTMLDivElement | null>(null);
+  const activeIndicatorRef = useRef<HTMLSpanElement | null>(null);
+  const indicatorTimelineRef = useRef<gsap.core.Timeline | null>(null);
+  const hasPositionedIndicator = useRef(false);
+
+  useLayoutEffect(() => {
+    const navItems = navItemsRef.current;
+    const indicator = activeIndicatorRef.current;
+    const activeIndex = items.findIndex((item) => item.href === activeHref);
+    const target = pillRefs.current[activeIndex];
+
+    if (!navItems || !indicator || !target) return;
+
+    const getTargetBounds = () => {
+      const navRect = navItems.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      return { x: targetRect.left - navRect.left, width: targetRect.width };
+    };
+
+    const placeIndicator = () => {
+      const { x, width } = getTargetBounds();
+      gsap.set(indicator, { x, width });
+    };
+
+    if (!hasPositionedIndicator.current) {
+      placeIndicator();
+      hasPositionedIndicator.current = true;
+      setSettledActiveHref(activeHref);
+    } else {
+      const { x, width } = getTargetBounds();
+      indicatorTimelineRef.current?.kill();
+      const timeline = gsap.timeline();
+      timeline.to(indicator, { x, width, duration: 0.45, ease, overwrite: "auto" }, 0);
+      timeline.call(() => setSettledActiveHref(undefined), undefined, 0.18);
+      timeline.call(() => setSettledActiveHref(activeHref), undefined, 0.36);
+      indicatorTimelineRef.current = timeline;
+    }
+
+    window.addEventListener("resize", placeIndicator);
+    return () => window.removeEventListener("resize", placeIndicator);
+  }, [activeHref, ease, items]);
 
   useEffect(() => {
     const layout = () => {
@@ -145,16 +187,22 @@ export default function PillNav({
     <div className={styles.container} style={cssVars}>
       <nav className={`${styles.pillNav} ${className}`} aria-label="Primary navigation">
         <div className={styles.navItems} ref={navItemsRef}>
+          <span className={styles.activeIndicator} aria-hidden="true" ref={activeIndicatorRef} />
           <ul className={styles.list}>
             {items.map((item, index) => (
               <li key={item.href}>
                 <a
-                  className={`${styles.pill}${activeHref === item.href ? ` ${styles.isActive}` : ""}`}
+                  className={`${styles.pill}${settledActiveHref === item.href ? ` ${styles.isActive}` : ""}`}
                   href={item.href}
                   aria-label={item.ariaLabel ?? item.label}
                   aria-current={activeHref === item.href ? "page" : undefined}
-                  onMouseEnter={() => animatePill(index, 1, 0.3)}
-                  onMouseLeave={() => animatePill(index, 0, 0.2)}
+                  onMouseEnter={() => {
+                    if (activeHref !== item.href) animatePill(index, 1, 0.3);
+                  }}
+                  onMouseLeave={() => {
+                    if (activeHref !== item.href) animatePill(index, 0, 0.2);
+                  }}
+                  ref={(element) => { pillRefs.current[index] = element; }}
                 >
                   <span className={styles.hoverCircle} aria-hidden="true" ref={(element) => { circleRefs.current[index] = element; }} />
                   <span className={styles.labelStack}>

@@ -18,23 +18,28 @@
 }
 
 .navItems {
-  background: var(--base);
+  background: var(--pill-bg);
   border-radius: 999px;
   height: var(--nav-h);
+  overflow: hidden;
+  position: relative;
 }
 
 .list {
+  border-radius: inherit;
   gap: var(--pill-gap);
   height: 100%;
   list-style: none;
   margin: 0;
   padding: 4px;
+  position: relative;
+  z-index: 2;
 }
 
 .list > li { display: flex; height: 100%; }
 
 .pill {
-  background: var(--pill-bg);
+  background: transparent;
   border-radius: 999px;
   color: var(--pill-text);
   cursor: pointer;
@@ -47,7 +52,7 @@
   padding: 0 var(--pill-pad-x);
   position: relative;
   text-transform: uppercase;
-  transition: background-color 0s linear;
+  transition: background-color 0s linear, color .14s ease;
   white-space: nowrap;
 }
 
@@ -59,6 +64,18 @@
 .pill:hover {
   background-color: var(--base);
   transition-delay: .3s;
+}
+
+.activeIndicator {
+  background: var(--base);
+  border-radius: 999px;
+  bottom: 4px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 4px;
+  will-change: transform, width;
+  z-index: 1;
 }
 
 .hoverCircle {
@@ -77,20 +94,7 @@
 .pillLabel { display: inline-block; line-height: 1; will-change: transform; }
 .pillLabelHover { color: var(--hover-text); left: 0; line-height: 1; position: absolute; top: 0; will-change: transform, opacity; }
 
-.pill.isActive::after {
-  background: var(--base);
-  border-radius: 50%;
-  bottom: -5px;
-  content: "";
-  height: 11px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-  width: 11px;
-  z-index: 4;
-}
-
-.pill.isActive { box-shadow: inset 0 -3px 0 var(--base); }
+.pill.isActive { color: var(--hover-text); }
 
 .mobileMenuButton,
 .mobileMenuPopover { display: none; }
