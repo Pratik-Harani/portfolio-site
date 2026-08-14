@@ -52,7 +52,7 @@
   padding: 0 var(--pill-pad-x);
   position: relative;
   text-transform: uppercase;
-  transition: color var(--active-label-color-duration) ease;
+  transition: color var(--scroll-spy-color-animation-duration) ease;
   white-space: nowrap;
 }
 

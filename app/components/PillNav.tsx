@@ -4,11 +4,14 @@ import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from
 import { gsap } from "gsap";
 import styles from "./PillNav.module.css";
 
-const activeIndicatorDuration = 0.25;
-const activeLabelColorDuration = activeIndicatorDuration * 0.48;
+
+const scrollSpyPillAnimationDuration = 0.25;
+const scrollSpyColorAnimationDuration = scrollSpyPillAnimationDuration * 0.48;
+const scrollSpyEase = "power3.easeOut";
+
 const hoverLabelRaise = 2;
-const hoverLabelDuration = 0.22;
-const hoverLabelEase = "power2.out";
+const hoverLabelRaiseAnimationDuration = 0.12;
+const hoverLabelEasePreset = "power3.easeOut"; //check gsap library documentation for all possible options
 
 export type PillNavItem = {
   label: string;
@@ -66,8 +69,8 @@ export default function PillNav({
       labelTweenRefs.current[activeIndex]?.kill();
       labelTweenRefs.current[activeIndex] = gsap.to(activeLabel, {
         y: 0,
-        duration: hoverLabelDuration,
-        ease: hoverLabelEase,
+        duration: hoverLabelRaiseAnimationDuration,
+        ease: hoverLabelEasePreset,
         overwrite: "auto",
       });
     }
@@ -91,12 +94,12 @@ export default function PillNav({
       const { x, width } = getTargetBounds();
       indicatorTimelineRef.current?.kill();
       const timeline = gsap.timeline();
-      timeline.to(indicator, { x, width, duration: activeIndicatorDuration, ease, overwrite: "auto" }, 0);
-      timeline.call(() => setSettledActiveHref(undefined), undefined, activeIndicatorDuration * 0.42);
+      timeline.to(indicator, { x, width, duration: scrollSpyPillAnimationDuration, ease: scrollSpyEase, overwrite: "auto" }, 0);
+      timeline.call(() => setSettledActiveHref(undefined), undefined, scrollSpyPillAnimationDuration * 0.42);
       timeline.call(
         () => setSettledActiveHref(activeHref),
         undefined,
-        activeIndicatorDuration - activeLabelColorDuration,
+        scrollSpyPillAnimationDuration - scrollSpyColorAnimationDuration,
       );
       indicatorTimelineRef.current = timeline;
     }
@@ -127,8 +130,8 @@ export default function PillNav({
     labelTweenRefs.current[index]?.kill();
     labelTweenRefs.current[index] = gsap.to(label, {
       y: raised ? -hoverLabelRaise : 0,
-      duration: hoverLabelDuration,
-      ease: hoverLabelEase,
+      duration: hoverLabelRaiseAnimationDuration,
+      ease: hoverLabelEasePreset,
       overwrite: "auto",
     });
   };
@@ -164,7 +167,7 @@ export default function PillNav({
     "--pill-bg": pillColor,
     "--hover-text": hoveredPillTextColor,
     "--pill-text": pillTextColor ?? baseColor,
-    "--active-label-color-duration": `${activeLabelColorDuration}s`,
+    "--scroll-spy-color-animation-duration": `${scrollSpyColorAnimationDuration}s`,
   } as CSSProperties;
 
   return (
