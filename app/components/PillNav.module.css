@@ -1,7 +1,7 @@
 .container {
   --nav-h: 44px;
   --pill-pad-x: 18px;
-  --pill-gap: 3px;
+  --pill-gap: 12px;
   left: 50%;
   position: fixed;
   top: 1.15rem;
