@@ -2,8 +2,7 @@
 
 # project-specific
 AGENTS.md
-public/cutout_test.png
-public/cutout_test2.png
+
 
 # dependencies
 /node_modules
