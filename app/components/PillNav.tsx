@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { gsap } from "gsap";
 import styles from "./PillNav.module.css";
 
@@ -44,7 +44,7 @@ export default function PillNav({
   onMobileMenuClick,
   initialLoadAnimation = true,
 }: PillNavProps) {
-  const primaryItems = items.slice(0, -1);
+  const primaryItems = useMemo(() => items.slice(0, -1), [items]);
   const trailingItem = items.at(-1);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [settledActiveHref, setSettledActiveHref] = useState(activeHref);
@@ -91,7 +91,6 @@ export default function PillNav({
     if (!hasPositionedIndicator.current) {
       placeIndicator();
       hasPositionedIndicator.current = true;
-      setSettledActiveHref(activeHref);
     } else {
       const { x, width } = getTargetBounds();
       indicatorTimelineRef.current?.kill();
@@ -108,7 +107,7 @@ export default function PillNav({
 
     window.addEventListener("resize", placeIndicator);
     return () => window.removeEventListener("resize", placeIndicator);
-  }, [activeHref, ease, items]);
+  }, [activeHref, ease, primaryItems]);
 
   useEffect(() => {
     if (mobileMenuRef.current) {
