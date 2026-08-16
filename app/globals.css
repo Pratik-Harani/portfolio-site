@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Light-theme tokens. Add a [data-theme="dark"] block here when a dark variant is needed. */
 :root {
   --ink: #232323;
   --ink-soft: #747474;
@@ -80,7 +79,9 @@ em { color: var(--pink); font-family: Georgia, "Times New Roman", serif; font-we
 .project-grid { display: grid; gap: clamp(.85rem, 1.2vw, 1.35rem); grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 4.5rem; }
 .project-card { background: #fffdf8; border: 1px solid var(--line); transition: box-shadow .28s ease, transform .28s ease; }
 .project-card:hover { box-shadow: 12px 13px 0 rgba(62, 78, 80, .16); transform: translate(-4px, -4px); }
-.project-image { aspect-ratio: 1; overflow: hidden; position: relative; }
+.project-image { aspect-ratio: 3 / 2; overflow: hidden; position: relative; }
+.project-image-content { object-fit: contain; }
+.project-image-content {object-fit: cover;}
 .project-image .placeholder { height: 100%; width: 100%; }
 .project-2 .placeholder { background: linear-gradient(135deg, #dbe6d1, #a5c1a1); }
 .project-3 .placeholder { background: linear-gradient(135deg, #c7dce0, #8db5bb); }

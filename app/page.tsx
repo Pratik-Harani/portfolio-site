@@ -128,7 +128,6 @@ export default function Home() {
             <p className="section-number">02 / PROJECTS</p>
             <h2>A selection of things I&apos;ve made.</h2>
           </div>
-          <p>Each project is a small study in making useful, considered software.</p>
         </div>
         <div className="project-grid">
           {projects.map((project, index) => (
