@@ -3,7 +3,7 @@ export const profile = {
   name: "Pratik Harani",
   firstName: "Pratik",
   status: "Computer Science student · Available for opportunities",
-  email: "hello@johndoe.dev",
+  email: "pratik.harani@gmail.com",
   location: "Based in London, UK",
   availability: "Open to new opportunities",
 };
@@ -65,31 +65,33 @@ export const projects = [
 
 export const experience = [
   {
-    company: "Company One",
-    role: "Software Engineering Intern",
-    dates: "Jun 2026 — Sep 2026",
+    company: "Blueshift Education",
+    logo: "/company-logos/blueshift.png",
+    role: "Coding Teacher",
+    dates: "Jul 2026 — Present",
     location: "London, UK",
-    description: "Add a concise description of your responsibilities, the people you worked with, and the impact of your work.",
+    description: "Lead weekly Python & Javscript coding tutorials at schools around London",
   },
   {
-    company: "Company Two",
-    role: "Technology Assistant",
-    dates: "Sep 2025 — Present",
+    company: "UCL Schools Engagement",
+    logo: "/company-logos/ucl.svg",
+    role: "AI/ML Workshops Leader",
+    dates: "Oct 2025 — Jun 2026",
     location: "London, UK",
-    description: "Add a concise description of your responsibilities, the people you worked with, and the impact of your work.",
+    description: "Designed and delivered workshops for underprivileged school students on Python, swarm intelligence, and robotics, growing the Robotics club into the top 3 most popular clubs at the school. ",
   },
   {
-    company: "Company Three",
-    role: "Student Developer",
-    dates: "Jan 2025 — Jun 2025",
+    company: "Fedora Linux",
+    logo: "/company-logos/fedora.png",
+    role: "Open-Source Contributor",
+    dates: "Apr 2021 — Jun 2021",
     location: "Remote",
-    description: "Add a concise description of your responsibilities, the people you worked with, and the impact of your work.",
+    description: "Designed badges, logic models and banners to revamp the Fedora Forums UI, used by 1+ million people worldwide.",
   },
 ];
 
 export const socialLinks = {
-  github: { url: "https://github.com/your-github-username" },
-  linkedin: { url: "https://linkedin.com/in/your-linkedin-username" },
-  // Replace this with the path to your CV file, e.g. "/john-doe-cv.pdf".
-  cv: { url: "/ADD-YOUR-CV-FILE-HERE.pdf" },
+  github: { url: "https://github.com/Pratik-Harani" },
+  linkedin: { url: "https://www.linkedin.com/in/pratik-harani/" },
+  cv: { url: "/Pratik Harani CV.pdf" },
 };

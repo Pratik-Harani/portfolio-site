@@ -133,7 +133,7 @@ export default function Home() {
           {projects.map((project, index) => (
             <article className={`project-card project-${index + 1} reveal`} key={project.title}>
               <div className="project-image">
-                <Image src={project.image} fill sizes="(max-width: 700px) 100vw, 25vw" className="project-image-content" alt={`Screenshot of ${project.title}`}/>
+                <Image src={project.image} fill sizes="(max-width: 800px) 100vw, 25vw" className="project-image-content" alt={`Screenshot of ${project.title}`}/>
                 
               </div>
               <div className="project-details">
@@ -161,7 +161,15 @@ export default function Home() {
           {experience.map((role, index) => (
             <article className="experience-row reveal" key={`${role.company}-${role.role}`}>
               <p className="experience-index">0{index + 1}</p>
-              <Placeholder label={`${role.company} logo`} className="company-logo" />
+              <div className="company-logo">
+                <Image
+                  src={role.logo}
+                  alt={`${role.company} logo`}
+                  fill
+                  sizes="4.2rem"
+                  className="company-logo-image"
+                />
+              </div>
               <div className="experience-role">
                 <h3>{role.role}</h3>
                 <p>{role.description}</p>

@@ -103,8 +103,8 @@ em { color: var(--pink); font-family: Georgia, "Times New Roman", serif; font-we
 .experience-row { align-items: center; border-bottom: 1px solid var(--line); display: grid; gap: 1.4rem; grid-template-columns: 2.2rem 4.7rem minmax(0, 1fr) minmax(170px, .55fr); padding: 1.7rem 0; transition: padding .22s ease, background .22s ease; }
 .experience-row:hover { background: rgba(255, 255, 255, .045); padding-left: .8rem; padding-right: .8rem; }
 .experience-index { color: var(--ink-soft); font-size: .7rem; font-weight: 700; }
-.company-logo { aspect-ratio: 1; background: var(--pink); color: var(--ink); width: 4.2rem; }
-.company-logo span { font-size: .48rem; }.company-logo strong { font-size: .55rem; }
+.company-logo { aspect-ratio: 1; position: relative; width: 4.2rem; }
+.company-logo-image { object-fit: contain; }
 .experience-role h3 { font-size: 1.35rem; margin: 0 0 .35rem; }.experience-role p, .experience-meta { color: var(--ink-faint); font-size: .8rem; line-height: 1.5; margin: 0; }
 .experience-meta { display: flex; flex-direction: column; gap: .2rem; }.experience-meta strong { color: var(--ink-soft); font-size: .82rem; }
 
