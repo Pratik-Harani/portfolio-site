@@ -11,14 +11,6 @@ function ArrowIcon() {
   return <span aria-hidden="true">↗</span>;
 }
 
-function Placeholder({ label, className = "" }: { label: string; className?: string }) {
-  return (
-    <div className={`placeholder ${className}`} aria-label={`${label} placeholder`} role="img">
-      <span>Replace with</span>
-      <strong>{label}</strong>
-    </div>
-  );
-}
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
