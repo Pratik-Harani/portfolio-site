@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
 import PillNav from "./components/PillNav";
+import Image from 'next/image'
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 
@@ -97,7 +98,7 @@ export default function Home() {
           <span className="hero-circle hero-circle-large" aria-hidden="true" />
           <span className="hero-circle hero-circle-medium" aria-hidden="true" />
           <span className="hero-circle hero-circle-small" aria-hidden="true" />
-          <img src="cutout_test2.png" width="200" height="250" className="portrait portrait-cutout" alt="Portrait of Pratik Harani" />
+          <Image src="/pratik_portrait.png" width={929} height={1132} className="portrait portrait-cutout" alt="Picture of Pratik Harani"/>
         </div>
       </section>
 
@@ -133,8 +134,8 @@ export default function Home() {
           {projects.map((project, index) => (
             <article className={`project-card project-${index + 1} reveal`} key={project.title}>
               <div className="project-image">
-                <Placeholder label={`${project.title} image`} />
-                <span className="project-index">0{index + 1}</span>
+                <Image src={project.image} fill sizes="(max-width: 700px) 100vw, 25vw" className="project-image-content" alt={`Screenshot of ${project.title}`}/>
+                
               </div>
               <div className="project-details">
                 <p>{project.category}</p>
