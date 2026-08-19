@@ -82,10 +82,6 @@ em { color: var(--pink); font-family: Georgia, "Times New Roman", serif; font-we
 .project-image { aspect-ratio: 3 / 2; overflow: hidden; position: relative; }
 .project-image-content { object-fit: contain; }
 .project-image-content {object-fit: cover;}
-.project-image .placeholder { height: 100%; width: 100%; }
-.project-2 .placeholder { background: linear-gradient(135deg, #dbe6d1, #a5c1a1); }
-.project-3 .placeholder { background: linear-gradient(135deg, #c7dce0, #8db5bb); }
-.project-4 .placeholder { background: linear-gradient(135deg, #f7ddbe, #e9a67b); }
 .project-index { background: var(--paper); font-family: var(--font-display); font-size: .72rem; font-weight: 700; left: .9rem; padding: .45rem .55rem; position: absolute; top: .9rem; }
 .project-details { padding: clamp(1.05rem, 1.5vw, 1.45rem); }
 .project-details > p:first-child { color: #bf7d45; font-size: .61rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
