@@ -87,11 +87,22 @@ export default function Home() {
         </div>
 
         <div className="hero-aside reveal is-visible">
-          <span className="hero-circle hero-circle-large" aria-hidden="true" />
           <span className="hero-circle hero-circle-medium" aria-hidden="true" />
+
+          <div className="portrait-frame">
+            <Image
+              src="/pratik_portrait.png"
+              alt="Picture of Pratik Harani"
+              fill
+              priority
+              sizes="(max-width: 768px) 72vw, 37vw"
+              className="portrait"
+            />
+          </div>
+
           <span className="hero-circle hero-circle-small" aria-hidden="true" />
-          <Image src="/pratik_portrait.png" width={929} height={1132} className="portrait portrait-cutout" alt="Picture of Pratik Harani"/>
         </div>
+
       </section>
 
       <section className="section about-section" id="about">
