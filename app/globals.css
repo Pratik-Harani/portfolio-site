@@ -53,7 +53,7 @@ em { color: var(--pink); font-family: Georgia, "Times New Roman", serif; font-we
 }
 
 .button-primary:hover {
-  box-shadow: 0 8px 16px -8px rgba(14, 17, 22, .35);
+  box-shadow: 0 8px 16px -8px rgba(14, 17, 22, 0.683);
 }
 
 .button-arrow {
