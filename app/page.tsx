@@ -1,12 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
 import PillNav from "./components/PillNav";
 import Image from 'next/image'
-import { ChevronDown} from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const sectionIds = ["about", "projects", "experience", "contact"];
+gsap.registerPlugin(ScrollTrigger);
 
 function ArrowIcon() {
   return <span aria-hidden="true">↗</span>;
@@ -23,6 +26,35 @@ function DownArrowIcon({size = 15, strokeWidth = 2.5, ...rest }: React.Component
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
+  const heroRef = useRef(null);
+  const pinkCircleRef = useRef(null);
+  const blueCircleRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1.25, // higher = laggier/smoother catch-up, lower = tighter
+          invalidateOnRefresh: true,
+        },
+      });
+  
+      tl.to(
+        pinkCircleRef.current,
+        { y: 200, ease: "power1.out" },
+        0
+      ).to(
+        blueCircleRef.current,
+        { y: -160, ease: "power1.out" },
+        0
+      );
+    }, heroRef);
+
+    return () => ctx.revert(); // cleans up tweens + ScrollTrigger instance
+  }, []);
 
   useEffect(() => {
     const sections = sectionIds
@@ -79,7 +111,7 @@ export default function Home() {
         initialLoadAnimation={false}
       />
 
-      <section className="hero" id="top">
+      <section className="hero" id="top" ref={heroRef}>
         <div className="hero-copy reveal is-visible">
           <h1 className="hero-title">
             <span>{hero.headline.beforeHighlight}</span>
@@ -96,8 +128,11 @@ export default function Home() {
         </div>
 
         <div className="hero-aside reveal is-visible">
-          <span className="hero-circle hero-circle-medium" aria-hidden="true" />
-
+          <span
+            ref={pinkCircleRef}
+            className="hero-circle hero-circle-medium"
+            aria-hidden="true"
+          />
           <div className="portrait-frame">
             <Image
               src="/pratik_portrait.png"
@@ -108,10 +143,12 @@ export default function Home() {
               className="portrait"
             />
           </div>
-
-          <span className="hero-circle hero-circle-small" aria-hidden="true" />
+          <span
+            ref={blueCircleRef}
+            className="hero-circle hero-circle-small"
+            aria-hidden="true"
+          />
         </div>
-
       </section>
 
       <section className="section about-section" id="about">

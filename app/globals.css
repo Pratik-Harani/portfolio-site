@@ -101,9 +101,9 @@ em { color: var(--pink); font-family: Georgia, "Times New Roman", serif; font-we
 .placeholder strong { font-family: var(--font-display); font-size: .82rem; margin-top: .32rem; }
 .portrait-frame { border: 1px solid rgba(62, 78, 80, .2); border-radius: 50%; height: min(37vw, 540px); overflow: hidden; position: absolute; right: -8%; top: 2%; width: min(37vw, 540px); z-index: 2; }
 .portrait { object-fit: cover; object-position: center 18%; }
-.hero-circle { border: 1px solid rgba(62, 78, 80, .2); border-radius: 50%; display: block; position: absolute; }
-.hero-circle-medium { background: var(--pink); height: clamp(3rem, 6vw, 5.8rem); left: 3%; opacity: .75; top: 18%; width: clamp(3rem, 6vw, 5.8rem); }
-.hero-circle-small { background: var(--light-blue); bottom: 16%; height: clamp(1rem, 2.25vw, 2.1rem); right: 2%; width: clamp(1rem, 2.25vw, 2.1rem); }
+.hero-circle { border: 0px solid rgba(62, 78, 80, .2); border-radius: 50%; display: block; position: absolute; }
+.hero-circle-medium { background: var(--pink); height: clamp(3rem, 6vw, 5.8rem); left: -18%; opacity: .35; top: 18%; width: clamp(3rem, 6vw, 5.8rem); will-change: transform; }
+.hero-circle-small { background: var(--light-blue); bottom: 16%; height: clamp(1rem, 2.25vw, 2.1rem); right: -8%; width: clamp(1rem, 2.25vw, 2.1rem); will-change: transform; }
 
 .section { padding: clamp(6rem, 11vw, 10rem) 5.5vw; }
 
