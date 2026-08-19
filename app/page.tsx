@@ -143,7 +143,12 @@ export default function Home() {
         </div>
         <div className="project-grid">
           {projects.map((project, index) => (
-            <article className={`project-card project-${index + 1} reveal`} key={project.title}>
+            <a
+              className={`project-card project-${index + 1} reveal`}
+              href={project.liveUrl}
+              key={project.title}
+              aria-label={`View ${project.title}`}
+            >
               <div className="project-image">
                 <Image src={project.image} fill sizes="(max-width: 800px) 100vw, 25vw" className="project-image-content" alt={`Screenshot of ${project.title}`}/>
                 
@@ -156,10 +161,9 @@ export default function Home() {
                   <ul aria-label={`${project.title} technologies`}>
                     {project.technologies.map((technology) => <li key={technology}>{technology}</li>)}
                   </ul>
-                  <a aria-label={`View ${project.title}`} href={project.liveUrl}>View <ArrowIcon /></a>
                 </div>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </section>
