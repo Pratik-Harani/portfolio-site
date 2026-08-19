@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
 import PillNav from "./components/PillNav";
 import Image from 'next/image'
-import { ChevronDown, ArrowUpRight } from 'lucide-react';
+import { ChevronDown} from 'lucide-react';
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 
