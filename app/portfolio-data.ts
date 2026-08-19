@@ -42,7 +42,7 @@ export const projects = [
     image: "/projects/StudentBudget.png",
     category: "Full stack",
     description: "Python desktop app to solve personal finance for students, using the envelope budgeting methodology.",
-    technologies: ["Python", "customTkinter", "OOP"],
+    technologies: ["MVC", "Python", "OOP"],
     liveUrl: "#",
   },
   {
@@ -50,11 +50,11 @@ export const projects = [
     image: "/projects/TetrisAutoplayerAI.png",
     category: "Heuristic Algorithms",
     description: "A Tetris-playing AI that optimizes for 4-line clears using weighted heuristics. Ranked in the top 10% out of 200 students.",
-    technologies: ["Python", "Machine Learning", "PyGame"],
+    technologies: ["Python", "AI/ML", "PyGame"],
     liveUrl: "#",
   },
   {
-    title: "Bioreactor Control System",
+    title: "Bioreactor IoT System",
     image: "/projects/Bioreactor.png",
     category: "Coursework",
     description: "Model for TB vaccine production in Uganda, with closed-loop automatic pH, heating, and stirring systems.",
