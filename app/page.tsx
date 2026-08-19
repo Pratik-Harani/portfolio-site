@@ -4,11 +4,20 @@ import { useEffect, useState } from "react";
 import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
 import PillNav from "./components/PillNav";
 import Image from 'next/image'
+import { ChevronDown, ArrowUpRight } from 'lucide-react';
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 
 function ArrowIcon() {
   return <span aria-hidden="true">↗</span>;
+}
+
+function DownArrowIcon({size = 15, strokeWidth = 2.5, ...rest }: React.ComponentProps<typeof ChevronDown>) {
+  return( 
+    <span aria-hidden="true">
+      <ChevronDown size={size} strokeWidth={strokeWidth} {...rest} />
+    </span>
+  );
 }
 
 
@@ -81,7 +90,7 @@ export default function Home() {
           </h1>
           <p className="hero-intro">{hero.introduction}</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#projects">See my work <span>↓</span></a>
+            <a className="button button-primary" href="#projects">See my work <span className="button-arrow"> <DownArrowIcon /> </span></a>
             <a className="text-link" href={`mailto:${profile.email}`}>Let&apos;s talk <ArrowIcon /></a>
           </div>
         </div>
