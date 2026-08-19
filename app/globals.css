@@ -132,12 +132,12 @@ em { color: var(--pink); font-family: Georgia, "Times New Roman", serif; font-we
 .project-details > p:first-child { color: var(--pink); font-size: .61rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .project-details h3 { font-size: clamp(1.35rem, 1.75vw, 1.8rem); margin: .35rem 0 .7rem; }
 .project-description { color: var(--ink-soft); font-size: clamp(.8rem, .9vw, .9rem); line-height: 1.5; }
-.project-footer { border-top: 1px solid var(--line); margin-top: 1.75rem; padding-top: 1.5rem; }
+.project-footer { border-top: 1px solid var(--line); margin-top: 1.5rem; padding-top: 1.5rem; }
 
 .project-footer ul { 
   display: flex; 
   flex-wrap: wrap; 
-  gap: 1rem; 
+  gap: 1.5rem; 
   justify-content: center; 
   list-style: none; 
   margin: 0; 
@@ -149,7 +149,8 @@ em { color: var(--pink); font-family: Georgia, "Times New Roman", serif; font-we
   border: 1.5px solid color-mix(var(--paper), var(--ink) 15%); 
   border-radius: 999px; color: var(--ink); 
   font-size: clamp(.64rem, .7vw, .72rem); 
-  font-weight: 500; color: color-mix(var(--paper), var(--ink) 65%); 
+  font-weight: 500; 
+  color: color-mix(var(--paper), var(--ink) 65%); 
   line-height: 1.2; 
   padding: .45rem .65rem; }
 
