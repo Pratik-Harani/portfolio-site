@@ -205,6 +205,8 @@ export default function PillNav({
         </div>
         {trailingItem && (
           <a
+            target="_blank" 
+            rel="noopener noreferrer"
             className={styles.trailingPill}
             href={trailingItem.href}
             aria-label={trailingItem.ariaLabel ?? trailingItem.label}
