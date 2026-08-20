@@ -44,11 +44,11 @@ export default function Home() {
   
       tl.to(
         pinkCircleRef.current,
-        { y: 200, ease: "power1.out" },
+        { y: 260, ease: "power2.out" },
         0
       ).to(
         blueCircleRef.current,
-        { y: -160, ease: "power1.out" },
+        { y: -160, ease: "power2.out" },
         0
       );
     }, heroRef);
