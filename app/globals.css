@@ -148,7 +148,7 @@ em { color: var(--pink); font-family: Georgia, "Times New Roman", serif; font-we
   background: color-mix(var(--paper), var(--ink) 4.5%); 
   border: 1.5px solid color-mix(var(--paper), var(--ink) 15%); 
   border-radius: 999px; color: var(--ink); 
-  font-size: clamp(.64rem, .7vw, .72rem); 
+  font-size: clamp(.74rem, .78vw, 1.92rem); 
   font-weight: 500; 
   color: color-mix(var(--paper), var(--ink) 65%); 
   line-height: 1.2; 
