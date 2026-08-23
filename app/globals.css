@@ -110,13 +110,14 @@ em { color: var(--pink); font-family: Georgia, "Times New Roman", serif; font-we
 .section-heading { max-width: 720px; }
 .section-heading h2 { font-size: clamp(2.5rem, 4.6vw, 5rem); line-height: 1.01; margin: 1.1rem 0 0; }
 .about-section { background: var(--paper-deep); }
-.about-layout { display: grid; gap: 7vw; grid-template-columns: minmax(0, .9fr) minmax(320px, 1.1fr); margin-top: clamp(3.4rem, 7vw, 6rem); }
-.about-copy { color: var(--ink-soft); font-size: 1.1rem; line-height: 1.72; max-width: 520px; }
-.about-copy .text-link { color: var(--ink); margin-top: 1rem; }
-.skills-panel { border-top: 1px solid var(--ink); padding-top: .9rem; }
-.skill-list { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.2rem; }
-.skill-list span { background: var(--paper); border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); font-size: .8rem; padding: .7rem .9rem; transition: transform .2s ease, background .2s ease; }
-.skill-list span:hover { background: var(--pink); transform: translateY(-2px); }
+.about-heading { margin: 0 auto; max-width: 1100px; text-align: center; }
+.about-heading h2 { font-size: clamp(3rem, 6.25vw, 6.7rem); margin: 0; text-wrap: balance; }
+.about-layout { margin: clamp(2rem, 3.5vw, 3.1rem) auto 0; max-width: 1150px; text-align: center; }
+.about-copy { color: var(--ink-soft); font-size: clamp(1.05rem, 1.55vw, 1.35rem); line-height: 1.55; margin: 0 auto; max-width: 780px; }
+.about-copy p:last-child:empty { display: none; }
+.skills-panel { margin-top: clamp(2.25rem, 4vw, 3.5rem); }
+.skill-list { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; margin: 0 auto; max-width: 1080px; }
+.skill-list span { background: var(--paper); border: 1.5px solid var(--line); border-radius: 999px; color: var(--ink); font-size: clamp(.85rem, 1.15vw, 1rem); font-weight: 500; padding: .72rem 1.15rem; }
 
 .projects-section { overflow: hidden; }
 .section-heading.with-copy { align-items: end; display: flex; gap: 4rem; justify-content: space-between; max-width: none; }

@@ -152,18 +152,15 @@ export default function Home() {
       </section>
 
       <section className="section about-section" id="about">
-        <div className="section-heading reveal">
-          <p className="section-number">01 / ABOUT</p>
+        <div className="section-heading about-heading reveal">
           <h2>{aboutSection.headline}</h2>
         </div>
         <div className="about-layout">
           <div className="about-copy reveal">
             <p>{aboutSection.description[0]}</p>
             <p>{aboutSection.description[1]}</p>
-            <a className="text-link" href="#contact">More about me <ArrowIcon /></a>
           </div>
           <div className="skills-panel reveal">
-            <p className="panel-label">Toolbox</p>
             <div className="skill-list">
               {aboutSection.skills.map((skill) => <span key={skill}>{skill}</span>)}
             </div>
