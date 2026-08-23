@@ -36,8 +36,8 @@ export default function ScrollReveal({
   blurStrength = 4,
   containerClassName = "",
   textClassName = "",
-  rotationEnd = "bottom bottom",
-  wordAnimationEnd = "bottom bottom",
+  rotationEnd = "top 30%",
+  wordAnimationEnd = "top 20%",
   as: Tag = "h2",
 }: ScrollRevealProps) {
   const containerRef = useRef<HTMLHeadingElement | HTMLParagraphElement>(null);
@@ -60,9 +60,13 @@ export default function ScrollReveal({
     const element = containerRef.current;
     if (!element) return;
 
-    const wordElements = element.querySelectorAll<HTMLElement>("[data-scroll-reveal-word]");
+    const wordElements = element.querySelectorAll<HTMLElement>(
+      "[data-scroll-reveal-word]"
+    );
     const scroller = scrollContainerRef?.current ?? window;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
     if (reducedMotion) {
       gsap.set(element, { clearProps: "transform" });
@@ -84,7 +88,7 @@ export default function ScrollReveal({
             end: rotationEnd,
             scrub: true,
           },
-        },
+        }
       );
 
       gsap.fromTo(
@@ -106,16 +110,34 @@ export default function ScrollReveal({
             end: wordAnimationEnd,
             scrub: true,
           },
-        },
+        }
       );
     }, element);
 
+    if (typeof document !== "undefined" && document.fonts) {
+      document.fonts.ready.then(() => ScrollTrigger.refresh());
+    }
+
     return () => context.revert();
-  }, [baseOpacity, baseRotation, blurStrength, enableBlur, rotationEnd, scrollContainerRef, wordAnimationEnd]);
+  }, [
+    baseOpacity,
+    baseRotation,
+    blurStrength,
+    enableBlur,
+    rotationEnd,
+    scrollContainerRef,
+    wordAnimationEnd,
+    children,
+  ]);
 
   return (
-    <Tag ref={containerRef} className={`${styles.scrollReveal} ${containerClassName}`.trim()}>
-      <span className={`${styles.text} ${textClassName}`.trim()}>{splitText}</span>
+    <Tag
+      ref={containerRef}
+      className={`${styles.scrollReveal} ${containerClassName}`.trim()}
+    >
+      <span className={`${styles.text} ${textClassName}`.trim()}>
+        {splitText}
+      </span>
     </Tag>
   );
 }
