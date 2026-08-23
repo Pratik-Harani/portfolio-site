@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
 import PillNav from "./components/PillNav";
+import ScrollReveal from "./components/ScrollReveal";
 import Image from 'next/image'
 import { ChevronDown } from 'lucide-react';
 import gsap from "gsap"
@@ -152,13 +153,29 @@ export default function Home() {
       </section>
 
       <section className="section about-section" id="about">
-        <div className="section-heading about-heading reveal">
-          <h2>{aboutSection.headline}</h2>
+        <div className="section-heading about-heading">
+          <ScrollReveal
+            baseOpacity={0}
+            baseRotation={0}
+            blurStrength={3}
+            containerClassName="about-headline-reveal"
+          >
+            {aboutSection.headline.join(" ")}
+          </ScrollReveal>
         </div>
         <div className="about-layout">
-          <div className="about-copy reveal">
-            <p>{aboutSection.description[0]}</p>
-            <p>{aboutSection.description[1]}</p>
+          <div className="about-copy">
+            {aboutSection.description.map((description) => (
+              <ScrollReveal
+                as="p"
+                baseOpacity={0.1}
+                baseRotation={0}
+                blurStrength={3}
+                key={description}
+              >
+                {description}
+              </ScrollReveal>
+            ))}
           </div>
           <div className="skills-panel reveal">
             <div className="skill-list">
