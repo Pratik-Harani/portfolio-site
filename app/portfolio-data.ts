@@ -20,12 +20,11 @@ export const hero = {
 };
 
 export const aboutSection = {
-  headline: ["A curious builder with a people-first mindset."],
-  description: ["I am Pratik, a Computer Science student interested in the space between technology, design, and everyday life. I enjoy taking a vague idea and giving it a clear, friendly shape.",
-    "Right now, I am building my foundations across full-stack development and product thinking. I care about the details that make software feel simple to use and satisfying to return to.",],
+  headline: ["A curious builder."],
+  description: ["I'm a 2nd year BSc Computer Science student at University College London (UCL), interested in cybersecurity, automation & back-end engineering.",
+     "When I'm not at a screen, you can find me in competitive debating, taking photographs of cool things, or reading a good book"],
   skills: [
-  "TypeScript", "React", "Next.js", "Python", "Java", "Node.js", "Tailwind CSS",
-  "PostgreSQL", "Git", "Figma", "REST APIs", "Problem solving",],
+    "TypeScript", "React", "Next.js", "Python", "Java", "C/C++", "Node.js", "Git", "LangChain", "Haskell"],
 };
 
 export const projects = [
