@@ -113,7 +113,7 @@ em { color: var(--pink); font-family: Georgia, "Times New Roman", serif; font-we
 .about-heading { margin: 0 auto; max-width: 1100px; text-align: center; }
 .about-heading h2 { font-size: clamp(3rem, 6.25vw, 6.7rem); margin: 0; text-wrap: balance; }
 .about-layout { margin: clamp(2rem, 3.5vw, 3.1rem) auto 0; max-width: 1150px; text-align: center; }
-.about-copy { color: var(--ink-soft); font-size: clamp(1.05rem, 1.55vw, 1.35rem); line-height: 1.55; margin: 0 auto; max-width: 780px; }
+.about-copy { color: var(--ink-soft); font-size: clamp(1.05rem, 1.55vw, 1.35rem); line-height: 1.55; margin: 0 auto; max-width: 780px; letter-spacing: -0.2; justify-content: left; }
 .about-copy p:last-child:empty { display: none; }
 .skills-panel { margin-top: clamp(2.25rem, 4vw, 3.5rem); }
 .skill-list { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; margin: 0 auto; max-width: 1080px; }
