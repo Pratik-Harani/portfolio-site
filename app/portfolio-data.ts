@@ -2,10 +2,7 @@
 export const profile = {
   name: "Pratik Harani",
   firstName: "Pratik",
-  status: "Computer Science student · Available for opportunities",
   email: "pratik.harani@gmail.com",
-  location: "Based in London, UK",
-  availability: "Open to new opportunities",
 };
 
 export const hero = {
