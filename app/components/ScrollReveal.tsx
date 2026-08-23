@@ -37,7 +37,7 @@ export default function ScrollReveal({
   containerClassName = "",
   textClassName = "",
   rotationEnd = "top 30%",
-  wordAnimationEnd = "top 20%",
+  wordAnimationEnd = "top 37%",
   as: Tag = "h2",
 }: ScrollRevealProps) {
   const containerRef = useRef<HTMLHeadingElement | HTMLParagraphElement>(null);
