@@ -15,8 +15,7 @@ export const hero = {
     highlightedText: "Software Engineer",
     afterHighlight: "",
   },
-  introduction:
-    "I am a second-year Computer Science student who enjoys creating calm, useful digital products and learning how good software comes together.",
+  introduction: ""
 };
 
 export const aboutSection = {
