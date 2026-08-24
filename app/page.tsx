@@ -5,7 +5,7 @@ import { aboutSection, experience, hero, profile, projects, socialLinks } from "
 import PillNav from "./components/PillNav";
 import ScrollReveal from "./components/ScrollReveal";
 import Image from 'next/image'
-import { ChevronDown, ArrowUpRight } from 'lucide-react';
+import { ChevronDown, ArrowUpRight, ArrowUp } from 'lucide-react';
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -24,6 +24,14 @@ function DownArrowIcon({size = 15, strokeWidth = 2.5, ...rest }: React.Component
   return( 
     <span aria-hidden="true">
       <ChevronDown size={size} strokeWidth={strokeWidth} {...rest} />
+    </span>
+  );
+}
+
+function ArrowUpIcon({ size = "1em", strokeWidth = 2.25, ...rest }: React.ComponentProps<typeof ArrowUp>) {
+  return (
+    <span className="arrow-icon" aria-hidden="true">
+      <ArrowUp size={size} strokeWidth={strokeWidth} {...rest} />
     </span>
   );
 }
@@ -283,7 +291,7 @@ export default function Home() {
 
       <footer className="site-footer">
         <p>© {new Date().getFullYear()} {profile.name}. Built with love.</p>
-        <a href="#top">Back to top  ↑</a>
+        <a href="#top">Back to top <ArrowUpIcon /></a>
       </footer>
     </main>
   );
