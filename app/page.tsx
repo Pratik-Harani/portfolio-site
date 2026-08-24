@@ -144,7 +144,7 @@ export default function Home() {
               alt="Picture of Pratik Harani"
               fill
               priority
-              sizes="(max-width: 768px) 72vw, 37vw"
+              sizes="(max-width: 929px) 92vw, 57vw"
               className="portrait"
             />
           </div>
