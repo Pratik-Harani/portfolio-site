@@ -17,8 +17,7 @@ export const hero = {
 
 export const aboutSection = {
   headline: ["A curious builder."],
-  description: ["I'm a 2nd year BSc Computer Science student at University College London (UCL), interested in cybersecurity, automation & back-end engineering.",
-     "When I'm not at a screen, you can find me in competitive debating, taking photographs of cool things, or reading a good book"],
+  description: ["I'm a 2nd year BSc Computer Science student at University College London (UCL), interested in cybersecurity, automation & back-end engineering. When I'm not at a screen, you can find me in competitive debating, taking photographs of cool things, or reading a good book"],
   skills: [
     "TypeScript", "React", "Next.js", "Python", "Java", "C/C++", "Node.js", "Git", "LangChain", "Haskell"],
 };
