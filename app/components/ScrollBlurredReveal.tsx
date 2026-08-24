@@ -9,7 +9,7 @@ import {
 } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import styles from "./ScrollReveal.module.css";
+import styles from "./ScrollBlurredReveal.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
 import PillNav from "./components/PillNav";
-import ScrollReveal from "./components/ScrollReveal";
+import ScrollReveal from "./components/ScrollBlurredReveal";
 import { ArrowUpRightIcon, DownArrowIcon, ArrowUpIcon } from "./components/icons";
 import Image from 'next/image'
 import gsap from "gsap"
@@ -22,13 +22,9 @@ export default function Home() {
   const heroRef = useRef(null);
   const largeCircleRef = useRef(null);
   const smallCircleRef = useRef(null)
-
-  //Hero circles scroll animation
+  
   useHeroCirclesAnimation(heroRef, largeCircleRef, smallCircleRef);
-
   let activeSection = useScrollSpy(sectionIds);
-
-  //simple opacity scroll reveal 
   useScrollOpacityReveal();
 
   return (
