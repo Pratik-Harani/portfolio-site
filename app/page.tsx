@@ -121,14 +121,26 @@ export default function Home() {
     <main>
       <PillNav
         items={[
-          ...sectionIds.map((section) => ({ label: section, href: `#${section}`, ariaLabel: section })),
-          { label: (
-            <span className="pill-cv-label">
-              CV <ArrowUpRightIcon strokeWidth = {2.75} size = "1.0em" />
-            </span>
-          ), href: socialLinks.cv.url, ariaLabel: "View CV" },
+          ...sectionIds.map((section) => ({
+            label: section,
+            // If the section is "about", point to "#top", otherwise point to "#section"
+            href: section === "about" ? "#top" : `#${section}`,
+            ariaLabel: section,
+          })),
+          {
+
+            //CV label is trailing in the navbar so it requires separate parameters
+            label: (
+              <span className="pill-cv-label">
+                CV <ArrowUpRightIcon strokeWidth={2.75} size="1.0em" />
+              </span>
+            ),
+            href: socialLinks.cv.url,
+            ariaLabel: "View CV"
+          },
         ]}
-        activeHref={`#${activeSection}`}
+        // Ensure the active state matches the new "#top" href when "about" is active
+        activeHref={activeSection === "about" ? "#top" : `#${activeSection}`}
         initialLoadAnimation={false}
       />
 
