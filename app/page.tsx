@@ -157,7 +157,7 @@ export default function Home() {
       </section>
 
       <section className="section about-section" id="about">
-        <p className="section-number">01 / ABOUT</p>
+        <p className="section-number">01 | ABOUT</p>
         <div className="section-heading about-heading">
           <ScrollReveal
             baseOpacity={0.1}
@@ -191,7 +191,7 @@ export default function Home() {
       </section>
 
       <section className="section projects-section" id="projects">
-        <p className="section-number">02 / PROJECTS</p>
+        <p className="section-number">02 | PROJECTS</p>
         <div className="section-heading with-copy reveal">
           <ScrollReveal
             baseOpacity={0.1}
@@ -231,7 +231,7 @@ export default function Home() {
 
       <section className="section experience-section" id="experience">
         <div className="section-heading reveal">
-          <p className="section-number">03 / EXPERIENCE</p>
+          <p className="section-number">03 | EXPERIENCE</p>
           <h2>Learning by doing, with good people.</h2>
         </div>
         <div className="experience-list">
@@ -265,7 +265,7 @@ export default function Home() {
         <div className="contact-orbit orbit-one" />
         <div className="contact-orbit orbit-two" />
         <div className="contact-content reveal">
-          <p className="section-number">04 / CONTACT</p>
+          <p className="section-number">04 | CONTACT</p>
           <p className="contact-kicker">Have a project, opportunity, or idea?</p>
           <h2>Let&apos;s make something <em>good.</em></h2>
           <a className="contact-email" href={`mailto:${profile.email}`}>{profile.email} <ArrowIcon /></a>
