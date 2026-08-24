@@ -4,37 +4,15 @@ import { useEffect, useState, useRef } from "react";
 import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
 import PillNav from "./components/PillNav";
 import ScrollReveal from "./components/ScrollReveal";
+import { ArrowUpRightIcon, DownArrowIcon, ArrowUpIcon } from "./components/icons";
 import Image from 'next/image'
-import { ChevronDown, ArrowUpRight, ArrowUp } from 'lucide-react';
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 gsap.registerPlugin(ScrollTrigger);
 
-function ArrowUpRightIcon({ size = "1em", strokeWidth = 2.25, ...rest }: React.ComponentProps<typeof ArrowUpRight>) {
-  return (
-    <span className="arrow-icon" aria-hidden="true">
-      <ArrowUpRight size={size} strokeWidth={strokeWidth} {...rest} />
-    </span>
-  );
-}
 
-function DownArrowIcon({size = 15, strokeWidth = 2.5, ...rest }: React.ComponentProps<typeof ChevronDown>) {
-  return( 
-    <span aria-hidden="true">
-      <ChevronDown size={size} strokeWidth={strokeWidth} {...rest} />
-    </span>
-  );
-}
-
-function ArrowUpIcon({ size = "1em", strokeWidth = 2.25, ...rest }: React.ComponentProps<typeof ArrowUp>) {
-  return (
-    <span className="arrow-icon" aria-hidden="true">
-      <ArrowUp size={size} strokeWidth={strokeWidth} {...rest} />
-    </span>
-  );
-}
 
 
 export default function Home() {
