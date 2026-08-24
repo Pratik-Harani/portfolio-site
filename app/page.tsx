@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, Dispatch, SetStateAction } from "react";
+import { useEffect, useRef } from "react";
 import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
 import PillNav from "./components/PillNav";
 import ScrollReveal from "./components/ScrollReveal";
@@ -9,6 +9,7 @@ import Image from 'next/image'
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useScrollSpy } from "./hooks/useScrollSpy";
+import { useHeroCirclesAnimation } from "./hooks/useHeroCirclesAnimation";
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 gsap.registerPlugin(ScrollTrigger);
@@ -18,35 +19,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const heroRef = useRef(null);
-  const pinkCircleRef = useRef(null);
-  const blueCircleRef = useRef(null)
+  const largeCircleRef = useRef(null);
+  const smallCircleRef = useRef(null)
 
   //Hero circles scroll animation
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.25, // higher = laggier/smoother catch-up, lower = tighter
-          invalidateOnRefresh: true,
-        },
-      });
-  
-      tl.to(
-        pinkCircleRef.current,
-        { y: 260, ease: "power2.out" },
-        0
-      ).to(
-        blueCircleRef.current,
-        { y: -160, ease: "power2.out" },
-        0
-      );
-    }, heroRef);
-
-    return () => ctx.revert(); // cleans up tweens + ScrollTrigger instance
-  }, []);
+  useHeroCirclesAnimation(heroRef, largeCircleRef, smallCircleRef);
 
   let activeSection = useScrollSpy(sectionIds);
 
@@ -114,7 +91,7 @@ export default function Home() {
 
         <div className="hero-aside reveal is-visible">
           <span
-            ref={pinkCircleRef}
+            ref={largeCircleRef}
             className="hero-circle hero-circle-medium"
             aria-hidden="true"
           />
@@ -129,7 +106,7 @@ export default function Home() {
             />
           </div>
           <span
-            ref={blueCircleRef}
+            ref={smallCircleRef}
             className="hero-circle hero-circle-small"
             aria-hidden="true"
           />
