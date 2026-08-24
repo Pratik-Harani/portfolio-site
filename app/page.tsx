@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
 import PillNav from "./components/PillNav";
 import ScrollReveal from "./components/ScrollReveal";
@@ -10,6 +10,7 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useScrollSpy } from "./hooks/useScrollSpy";
 import { useHeroCirclesAnimation } from "./hooks/useHeroCirclesAnimation";
+import { useScrollOpacityReveal } from "./hooks/useScrollOpacityReveal";
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 gsap.registerPlugin(ScrollTrigger);
@@ -28,23 +29,7 @@ export default function Home() {
   let activeSection = useScrollSpy(sectionIds);
 
   //simple opacity scroll reveal 
-  useEffect(() => {
-    const animatedItems = document.querySelectorAll<HTMLElement>(".reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 },
-    );
-
-    animatedItems.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
-  }, []);
+  useScrollOpacityReveal();
 
   return (
     <main>
@@ -241,5 +226,6 @@ export default function Home() {
     </main>
   );
 }
+
 
 
