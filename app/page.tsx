@@ -191,11 +191,16 @@ export default function Home() {
       </section>
 
       <section className="section projects-section" id="projects">
+        <p className="section-number">02 / PROJECTS</p>
         <div className="section-heading with-copy reveal">
-          <div>
-            <p className="section-number">02 / PROJECTS</p>
-            <h2>A selection of things I&apos;ve made.</h2>
-          </div>
+          <ScrollReveal
+            baseOpacity={0.1}
+            baseRotation={0}
+            blurStrength={2.5}
+            containerClassName="about-headline-reveal"
+          >
+            {"A selection of things I've made"}
+          </ScrollReveal>
         </div>
         <div className="project-grid">
           {projects.map((project, index) => (
