@@ -177,7 +177,7 @@ em { color: var(--pink); font-style:normal;}
 .contact-orbit { border: 1px solid rgba(62, 78, 80, .2); border-radius: 50%; position: absolute; }.orbit-one { height: 55vw; min-height: 600px; min-width: 600px; right: -13vw; top: -17vw; width: 55vw; }.orbit-two { bottom: -45vw; height: 65vw; left: -17vw; width: 65vw; }
 .site-footer { align-items: center; background: var(--ink); color: rgba(255, 251, 243, .72); display: flex; font-size: .68rem; justify-content: space-between; letter-spacing: .07em; padding: 1.4rem 5.5vw; text-transform: uppercase; }.site-footer p { margin: 0; }.site-footer a:hover { color: var(--paper); }
 
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }.reveal.is-visible { opacity: 1; transform: translateY(0); }.hero .reveal:nth-child(2) { transition-delay: .12s; }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .6s ease; }.reveal.is-visible { opacity: 1; transform: translateY(0); }.hero .reveal:nth-child(2) { transition-delay: .12s; }
 @keyframes pulse { 50% { box-shadow: 0 0 0 5px rgba(143, 172, 112, .14); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
 @media (max-width: 1100px) and (min-width: 761px) { .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .project-details h3 { font-size: clamp(1.65rem, 2.5vw, 2.15rem); } }
