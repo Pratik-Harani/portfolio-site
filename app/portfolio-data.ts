@@ -29,7 +29,7 @@ export const projects = [
     category: "Agentic AI",
     description: "Agent orchestration platform that enables real-time prompt refinement, cutting down token usage by 5.4x",
     technologies: ["React", "LangChain", "FastAPI"],
-    liveUrl: "#",
+    liveUrl: "https://github.com/Pratik-Harani/Oberon",
   },
   {
     title: "StudentBudget",
@@ -37,7 +37,7 @@ export const projects = [
     category: "Full stack",
     description: "Python desktop app to solve personal finance for students, using the envelope budgeting methodology.",
     technologies: ["MVC", "Python", "OOP"],
-    liveUrl: "#",
+    liveUrl: "https://github.com/Pratik-Harani/StudentBudget",
   },
   {
     title: "Tetris Autoplayer AI",
@@ -45,7 +45,7 @@ export const projects = [
     category: "Heuristic Algorithms",
     description: "A Tetris-playing AI that optimizes for 4-line clears using weighted heuristics. Ranked in the top 10% out of 200 students.",
     technologies: ["Python", "AI/ML", "PyGame"],
-    liveUrl: "#",
+    liveUrl: "https://github.com/Pratik-Harani/Tetris-Autoplayer-AI",
   },
   {
     title: "Bioreactor IoT System",
@@ -53,7 +53,7 @@ export const projects = [
     category: "Coursework",
     description: "Model for TB vaccine production in Uganda, with closed-loop automatic pH, heating, and stirring systems.",
     technologies: ["C++", "Arduino", "IoT"],
-    liveUrl: "#",
+    liveUrl: "https://github.com/Pratik-Harani/Bioreactor-IoT-System",
   },
 ];
 
