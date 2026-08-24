@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Dispatch, SetStateAction } from "react";
 import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
 import PillNav from "./components/PillNav";
 import ScrollReveal from "./components/ScrollReveal";
@@ -8,6 +8,7 @@ import { ArrowUpRightIcon, DownArrowIcon, ArrowUpIcon } from "./components/icons
 import Image from 'next/image'
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useScrollSpy } from "./hooks/useScrollSpy";
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 gsap.registerPlugin(ScrollTrigger);
@@ -16,7 +17,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState("about");
   const heroRef = useRef(null);
   const pinkCircleRef = useRef(null);
   const blueCircleRef = useRef(null)
@@ -48,33 +48,7 @@ export default function Home() {
     return () => ctx.revert(); // cleans up tweens + ScrollTrigger instance
   }, []);
 
-
-  //Navbar scroll spy
-  useEffect(() => {
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((section): section is HTMLElement => section !== null);
-
-    const updateActiveSection = () => {
-      const readingPosition = window.scrollY + window.innerHeight * 0.35;
-      let currentSection = sections[0]?.id ?? "about";
-
-      sections.forEach((section) => {
-        if (section.offsetTop <= readingPosition) currentSection = section.id;
-      });
-
-      setActiveSection(currentSection);
-    };
-
-    updateActiveSection();
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    window.addEventListener("resize", updateActiveSection);
-
-    return () => {
-      window.removeEventListener("scroll", updateActiveSection);
-      window.removeEventListener("resize", updateActiveSection);
-    };
-  }, []);
+  let activeSection = useScrollSpy(sectionIds);
 
   //simple opacity scroll reveal 
   useEffect(() => {
@@ -290,3 +264,5 @@ export default function Home() {
     </main>
   );
 }
+
+
