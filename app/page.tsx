@@ -98,7 +98,7 @@ export default function Home() {
     };
   }, []);
 
-  //opacity scroll reveal (applied on Project, Experience & Contact sections)
+  //simple opacity scroll reveal 
   useEffect(() => {
     const animatedItems = document.querySelectorAll<HTMLElement>(".reveal");
     const observer = new IntersectionObserver(
@@ -121,8 +121,12 @@ export default function Home() {
     <main>
       <PillNav
         items={[
-          ...sectionIds.map((section) => ({ label: section, href: `#${section}` })),
-          { label: "CV", href: socialLinks.cv.url, ariaLabel: "View CV" },
+          ...sectionIds.map((section) => ({ label: section, href: `#${section}`, ariaLabel: section })),
+          { label: (
+            <span className="pill-cv-label">
+              CV <ArrowUpRightIcon strokeWidth = {2.75} size = "1.0em" />
+            </span>
+          ), href: socialLinks.cv.url, ariaLabel: "View CV" },
         ]}
         activeHref={`#${activeSection}`}
         initialLoadAnimation={false}
@@ -140,7 +144,7 @@ export default function Home() {
           <p className="hero-intro">{hero.introduction}</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#projects">See my work <span className="button-arrow"> <DownArrowIcon /> </span></a>
-            <a className="text-link" href={`mailto:${profile.email}`}>Let&apos;s talk <ArrowUpRightIcon /></a>
+            <a className="text-link" href={`mailto:${profile.email}`}>Let&apos;s talk <ArrowUpRightIcon size = "1.25em" strokeWidth = {2.5} /></a>
           </div>
         </div>
 

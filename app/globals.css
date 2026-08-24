@@ -25,6 +25,12 @@ button { font: inherit; }
   vertical-align: -0.15em;
 }
 
+.pill-cv-label {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.35em;
+}
+
 .site-header { align-items: center; backdrop-filter: blur(14px); background: color-mix(in srgb, var(--paper) 88%, transparent); border-bottom: 1px solid transparent; display: flex; justify-content: space-between; left: 0; min-height: 74px; padding: 0 5.5vw; position: sticky; top: 0; z-index: 20; }
 .site-header::after { background: var(--line); bottom: 0; content: ""; height: 1px; left: 5.5vw; position: absolute; right: 5.5vw; }
 .wordmark { align-items: center; display: flex; font-family: var(--font-display); font-size: 1.16rem; font-weight: 700; gap: .45rem; letter-spacing: -.04em; }

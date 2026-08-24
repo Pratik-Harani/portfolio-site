@@ -14,7 +14,7 @@ const hoverLabelRaiseAnimationDuration = 0.12;
 const hoverLabelEasePreset = "power3.easeOut"; //check gsap library documentation for all possible options
 
 export type PillNavItem = {
-  label: string;
+  label: React.ReactNode;
   href: string;
   ariaLabel?: string;
 };
@@ -182,7 +182,7 @@ export default function PillNav({
                 <a
                   className={`${styles.pill}${settledActiveHref === item.href ? ` ${styles.isActive}` : ""}`}
                   href={item.href}
-                  aria-label={item.ariaLabel ?? item.label}
+                  aria-label={item.ariaLabel}
                   aria-current={activeHref === item.href ? "page" : undefined}
                   onMouseEnter={() => {
                     if (activeHref !== item.href) animateLabel(index, true);
@@ -209,7 +209,7 @@ export default function PillNav({
             rel="noopener noreferrer"
             className={styles.trailingPill}
             href={trailingItem.href}
-            aria-label={trailingItem.ariaLabel ?? trailingItem.label}
+            aria-label={trailingItem.ariaLabel}
             onMouseEnter={() => animateLabel(items.length - 1, true)}
             onMouseLeave={() => animateLabel(items.length - 1, false)}
             onClick={() => animateLabel(items.length - 1, false)}
