@@ -157,6 +157,7 @@ export default function Home() {
       </section>
 
       <section className="section about-section" id="about">
+        <p className="section-number">01 / ABOUT</p>
         <div className="section-heading about-heading">
           <ScrollReveal
             baseOpacity={0.1}
