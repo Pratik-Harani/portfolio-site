@@ -272,7 +272,7 @@ export default function Home() {
           <div className="contact-links">
             <a href={socialLinks.github.url}>GitHub <ArrowIcon /></a>
             <a href={socialLinks.linkedin.url}>LinkedIn <ArrowIcon /></a>
-            <a href={socialLinks.cv.url}>CV <ArrowIcon /></a>
+            <a target="_blank" rel="noopener noreferrer" href={socialLinks.cv.url}>CV <ArrowIcon /></a>
           </div>
         </div>
       </section>
