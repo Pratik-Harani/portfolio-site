@@ -31,6 +31,7 @@ export default function Home() {
   const pinkCircleRef = useRef(null);
   const blueCircleRef = useRef(null)
 
+  //Hero circles scroll animation
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -57,6 +58,8 @@ export default function Home() {
     return () => ctx.revert(); // cleans up tweens + ScrollTrigger instance
   }, []);
 
+
+  //Navbar scroll spy
   useEffect(() => {
     const sections = sectionIds
       .map((id) => document.getElementById(id))
@@ -83,6 +86,7 @@ export default function Home() {
     };
   }, []);
 
+  //opacity scroll reveal (applied on Project, Experience & Contact sections)
   useEffect(() => {
     const animatedItems = document.querySelectorAll<HTMLElement>(".reveal");
     const observer = new IntersectionObserver(
@@ -155,9 +159,9 @@ export default function Home() {
       <section className="section about-section" id="about">
         <div className="section-heading about-heading">
           <ScrollReveal
-            baseOpacity={0}
+            baseOpacity={0.1}
             baseRotation={0}
-            blurStrength={3}
+            blurStrength={2.5}
             containerClassName="about-headline-reveal"
           >
             {aboutSection.headline.join(" ")}
@@ -168,9 +172,9 @@ export default function Home() {
             {aboutSection.description.map((description) => (
               <ScrollReveal
                 as="p"
-                baseOpacity={0.1}
+                baseOpacity={0.3}
                 baseRotation={0}
-                blurStrength={3}
+                blurStrength={2.5}
                 key={description}
               >
                 {description}
@@ -268,8 +272,8 @@ export default function Home() {
       </section>
 
       <footer className="site-footer">
-        <p>© {new Date().getFullYear()} {profile.name}. Built with care.</p>
-        <a href="#top">Back to top ↑</a>
+        <p>© {new Date().getFullYear()} {profile.name}. Built with love.</p>
+        <a href="#top">Back to top  ↑</a>
       </footer>
     </main>
   );
