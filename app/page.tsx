@@ -5,15 +5,19 @@ import { aboutSection, experience, hero, profile, projects, socialLinks } from "
 import PillNav from "./components/PillNav";
 import ScrollReveal from "./components/ScrollReveal";
 import Image from 'next/image'
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ArrowUpRight } from 'lucide-react';
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const sectionIds = ["about", "projects", "experience", "contact"];
 gsap.registerPlugin(ScrollTrigger);
 
-function ArrowIcon() {
-  return <span aria-hidden="true">↗</span>;
+function ArrowUpRightIcon({ size = "1em", strokeWidth = 2.25, ...rest }: React.ComponentProps<typeof ArrowUpRight>) {
+  return (
+    <span className="arrow-icon" aria-hidden="true">
+      <ArrowUpRight size={size} strokeWidth={strokeWidth} {...rest} />
+    </span>
+  );
 }
 
 function DownArrowIcon({size = 15, strokeWidth = 2.5, ...rest }: React.ComponentProps<typeof ChevronDown>) {
@@ -128,7 +132,7 @@ export default function Home() {
           <p className="hero-intro">{hero.introduction}</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#projects">See my work <span className="button-arrow"> <DownArrowIcon /> </span></a>
-            <a className="text-link" href={`mailto:${profile.email}`}>Let&apos;s talk <ArrowIcon /></a>
+            <a className="text-link" href={`mailto:${profile.email}`}>Let&apos;s talk <ArrowUpRightIcon /></a>
           </div>
         </div>
 
@@ -268,11 +272,11 @@ export default function Home() {
           <p className="section-number">04 | CONTACT</p>
           <p className="contact-kicker">Have a project, opportunity, or idea?</p>
           <h2>Let&apos;s make something <em>good.</em></h2>
-          <a className="contact-email" href={`mailto:${profile.email}`}>{profile.email} <ArrowIcon /></a>
+          <a className="contact-email" href={`mailto:${profile.email}`}>{profile.email} <ArrowUpRightIcon /></a>
           <div className="contact-links">
-            <a href={socialLinks.github.url}>GitHub <ArrowIcon /></a>
-            <a href={socialLinks.linkedin.url}>LinkedIn <ArrowIcon /></a>
-            <a target="_blank" rel="noopener noreferrer" href={socialLinks.cv.url}>CV <ArrowIcon /></a>
+            <a href={socialLinks.github.url}>GitHub <ArrowUpRightIcon /></a>
+            <a href={socialLinks.linkedin.url}>LinkedIn <ArrowUpRightIcon /></a>
+            <a target="_blank" rel="noopener noreferrer" href={socialLinks.cv.url}>CV <ArrowUpRightIcon /></a>
           </div>
         </div>
       </section>
