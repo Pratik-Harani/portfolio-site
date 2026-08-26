@@ -4,6 +4,12 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperti
 import { gsap } from "gsap";
 import styles from "./PillNav.module.css";
 
+//PillNav module originally taken from reactbits.dev
+//Modifications:
+// - has a scroll spy effect (with pill moving to current active section)
+// - animates the text color switching during the scroll spy effect to prevent a color flash 
+// - has a different hover animation (simply raises the current label text)
+// - has a trailing item at the end that is detached from the rest of the navbar
 
 const scrollSpyPillAnimationDuration = 0.25;
 const scrollSpyColorAnimationDuration = scrollSpyPillAnimationDuration * 0.48;
