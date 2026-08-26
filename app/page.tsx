@@ -69,17 +69,24 @@ export default function Home() {
 
       <AboutSection 
         aboutSection={aboutSection} 
-        sectionNumber="01 | ABOUT" 
+        sectionNumber={`01 | ${sectionIds[0]}`} 
       />
  
       <ProjectsSection 
         projects = {projects} 
-        sectionNumber = "02 | PROJECTS"
+        sectionNumber={`02 | ${sectionIds[1]}`} 
       />
 
-      <ExperienceSection experience = {experience} sectionNumber="03 | EXPERIENCE"/>
+      <ExperienceSection 
+        experience = {experience} 
+        sectionNumber={`03 | ${sectionIds[2]}`} 
+      />
 
-      <ContactSection profile = {profile} socialLinks={socialLinks} sectionNumber="04 | CONTACT"/>
+      <ContactSection 
+        profile = {profile} 
+        socialLinks={socialLinks} 
+        sectionNumber={`04 | ${sectionIds[3]}`} 
+      />
 
 
       <SiteFooter profile={profile}/>
