@@ -12,14 +12,14 @@ export interface ExperienceRole {
 export interface ExperienceSectionProps {
     experience: ExperienceRole[];
     sectionNumber: string;
-    headlineText?: string;
+    headlineText: string;
     logoImageLoadQualitySizes?: string;
 }
 
 export function ExperienceSection({
     experience,
     sectionNumber,
-    headlineText = "Learning by doing, with good people.",
+    headlineText,
     logoImageLoadQualitySizes = "4.2rem",
 }: ExperienceSectionProps){
     return(

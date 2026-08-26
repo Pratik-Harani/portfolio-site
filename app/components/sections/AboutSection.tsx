@@ -3,7 +3,7 @@
 import ScrollReveal from "../ScrollBlurredReveal";
 
 export interface AboutData {
-    headline: string[];
+    headline: string;
     description: string[];
     skills: string[];
 }
@@ -43,7 +43,7 @@ export function AboutSection({
                     blurStrength={headlineScrollRevealBlurStrength}
                     containerClassName="about-headline-reveal"
                   >
-                    {aboutSection.headline.join(" ")}
+                    {aboutSection.headline}
                   </ScrollReveal>
                 </div>
                 <div className="about-layout">

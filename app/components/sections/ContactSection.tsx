@@ -18,18 +18,18 @@ export interface ContactSectionProps {
     profile: ProfileContact;
     socialLinks: SocialLinks;
     sectionNumber: string;
-    kickerText?: string;
-    normalHeadlineText?: string;
-    highlightedHeadlineText?: string;
+    kickerText: string;
+    normalHeadlineText: string;
+    highlightedHeadlineText: string;
 }
 
 export function ContactSection({
     profile,
     socialLinks,
     sectionNumber,
-    kickerText = "Have a project, opportunity, or idea?",
-    normalHeadlineText = "Let's make something",
-    highlightedHeadlineText = "good"
+    kickerText,
+    normalHeadlineText,
+    highlightedHeadlineText 
 }: ContactSectionProps){
     return (
         <section className="contact-section" id="contact">

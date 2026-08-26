@@ -13,7 +13,7 @@ export interface Project {
 export interface ProjectsSectionProps {
     projects: Project[];
     sectionNumber: string;
-    headlineText?: string;
+    headlineText: string;
     projectImageLoadQualitySizes?: string;
     headlineScrollRevealBaseOpacity?: number;
     headlineScrollRevealBlurStrength?: number;
@@ -23,7 +23,7 @@ export interface ProjectsSectionProps {
 export function ProjectsSection({
     projects,
     sectionNumber,
-    headlineText = "A selection of things I've made",
+    headlineText,
     projectImageLoadQualitySizes = "(max-width: 800px) 100vw, 25vw",
     headlineScrollRevealBaseOpacity = 0.1,
     headlineScrollRevealBlurStrength = 2.5,

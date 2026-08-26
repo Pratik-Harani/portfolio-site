@@ -18,13 +18,15 @@ export const hero = {
 };
 
 export const aboutSection = {
-  headline: ["A curious builder."],
+  headline: "A curious builder.",
   description: ["I'm a 2nd year BSc Computer Science student at University College London (UCL), interested in cybersecurity, automation & back-end engineering. When I'm not at a screen, you can find me in competitive debating, taking photographs of cool things, or reading a good book"],
   skills: [
     "TypeScript", "React", "Next.js", "Python", "Java", "C/C++", "Node.js", "Git", "LangChain", "Haskell"],
 };
 
-export const projects = [
+export const projectsSection = {
+  headline: "A selection of things I've made",
+  projects: [
   {
     title: "Oberon",
     image: "/projects/Oberon.png",
@@ -57,9 +59,12 @@ export const projects = [
     technologies: ["C++", "Arduino", "IoT"],
     liveUrl: "https://github.com/Pratik-Harani/Bioreactor-IoT-System",
   },
-];
+]
+}
 
-export const experience = [
+export const experienceSection = {
+  headline: "Learning by doing, with good people.",
+  experience: [
   {
     company: "Blueshift Education",
     logo: "/company-logos/blueshift.png",
@@ -84,7 +89,14 @@ export const experience = [
     location: "Remote",
     description: "Designed badges, logic models and banners to revamp the Fedora Forums UI, used by 1+ million people worldwide.",
   },
-];
+  ]
+}
+
+export const contactSection = {
+  kickerText: "Have a project, opportunity, or idea?",
+  normalHeadlineText: "Let's make something",
+  highlightedHeadlineText: "good"
+}
 
 export const socialLinks = {
   github: { url: "https://github.com/Pratik-Harani" },

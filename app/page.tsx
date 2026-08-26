@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { aboutSection, experience, hero, profile, projects, socialLinks, sectionIds } from "./portfolio-data";
+import { aboutSection, projectsSection, experienceSection, hero, profile, socialLinks, contactSection, sectionIds} from "./portfolio-data";
 import PillNav from "./components/PillNav";
 import { ArrowUpRightIcon} from "./components/icons";
 import gsap from "gsap"
@@ -73,12 +73,14 @@ export default function Home() {
       />
  
       <ProjectsSection 
-        projects = {projects} 
+        projects = {projectsSection.projects}
+        headlineText = {projectsSection.headline} 
         sectionNumber={`02 | ${sectionIds[1]}`} 
       />
 
       <ExperienceSection 
-        experience = {experience} 
+        experience = {experienceSection.experience} 
+        headlineText={experienceSection.headline}
         sectionNumber={`03 | ${sectionIds[2]}`} 
       />
 
@@ -86,6 +88,9 @@ export default function Home() {
         profile = {profile} 
         socialLinks={socialLinks} 
         sectionNumber={`04 | ${sectionIds[3]}`} 
+        normalHeadlineText={contactSection.normalHeadlineText}
+        highlightedHeadlineText={contactSection.highlightedHeadlineText}
+        kickerText={contactSection.kickerText}
       />
 
 
