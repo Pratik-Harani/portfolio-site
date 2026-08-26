@@ -1,4 +1,6 @@
 
+export const sectionIds = ["about", "projects", "experience", "contact"];
+
 export const profile = {
   name: "Pratik Harani",
   firstName: "Pratik",

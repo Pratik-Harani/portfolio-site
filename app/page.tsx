@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { aboutSection, experience, hero, profile, projects, socialLinks } from "./portfolio-data";
+import { aboutSection, experience, hero, profile, projects, socialLinks, sectionIds } from "./portfolio-data";
 import PillNav from "./components/PillNav";
 import { ArrowUpRightIcon} from "./components/icons";
 import gsap from "gsap"
@@ -16,7 +16,7 @@ import { ExperienceSection } from "./components/sections/ExperienceSection";
 import { ContactSection } from "./components/sections/ContactSection";
 import { SiteFooter } from "./components/sections/SiteFooter";
 
-const sectionIds = ["about", "projects", "experience", "contact"];
+
 gsap.registerPlugin(ScrollTrigger);
 
 
