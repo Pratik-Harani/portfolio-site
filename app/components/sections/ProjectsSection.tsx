@@ -49,6 +49,8 @@ export function ProjectsSection({
                         href={project.liveUrl}
                         key={project.title}
                         aria-label={`View ${project.title}`}
+
+                        target="_blank" rel="noopener noreferrer" //open link in a new tab always
                     >
                         <div className="project-image">
                             <Image src={project.image} fill sizes={projectImageLoadQualitySizes} className="project-image-content" alt={`Screenshot of ${project.title}`} />

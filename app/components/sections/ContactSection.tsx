@@ -44,8 +44,9 @@ export function ContactSection({
 
                 
                 <div className="contact-links">
-                    <a href={socialLinks.github.url}>GitHub <ArrowUpRightIcon /></a>
-                    <a href={socialLinks.linkedin.url}>LinkedIn <ArrowUpRightIcon /></a>
+                    {/* target blank and rel noopener makes the link open in a new tab */}
+                    <a target="_blank" rel="noopener noreferrer" href={socialLinks.github.url}>GitHub <ArrowUpRightIcon /></a>
+                    <a target="_blank" rel="noopener noreferrer" href={socialLinks.linkedin.url}>LinkedIn <ArrowUpRightIcon /></a>
                     <a target="_blank" rel="noopener noreferrer" href={socialLinks.cv.url}>CV <ArrowUpRightIcon /></a>
                 </div>
             </div>
