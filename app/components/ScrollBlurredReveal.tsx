@@ -1,5 +1,8 @@
 "use client";
 
+//Scroll Blur Reveal effect from reactbits.dev, modified a bit to suit my usecase and elements (h2, p etc.)
+
+
 import {
   useLayoutEffect,
   useMemo,
@@ -20,6 +23,7 @@ type ScrollRevealProps = {
   baseOpacity?: number;
   baseRotation?: number;
   blurStrength?: number;
+  scrubAmount?: number;
   containerClassName?: string;
   textClassName?: string;
   rotationEnd?: string;
@@ -34,6 +38,7 @@ export default function ScrollReveal({
   baseOpacity = 0.1,
   baseRotation = 3,
   blurStrength = 4,
+  scrubAmount = 1.25,
   containerClassName = "",
   textClassName = "",
   rotationEnd = "top 30%",
@@ -86,7 +91,7 @@ export default function ScrollReveal({
             scroller,
             start: "top bottom",
             end: rotationEnd,
-            scrub: true,
+            scrub: scrubAmount,
           },
         }
       );
@@ -108,7 +113,7 @@ export default function ScrollReveal({
             scroller,
             start: "top bottom-=20%",
             end: wordAnimationEnd,
-            scrub: true,
+            scrub: scrubAmount,
           },
         }
       );
