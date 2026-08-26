@@ -13,6 +13,7 @@ const hoverLabelRaise = 2;
 const hoverLabelRaiseAnimationDuration = 0.12;
 const hoverLabelEasePreset = "power3.easeOut"; //check gsap library documentation for all possible options
 
+
 export type PillNavItem = {
   label: React.ReactNode;
   href: string;
@@ -46,6 +47,7 @@ export default function PillNav({
 }: PillNavProps) {
   const primaryItems = useMemo(() => items.slice(0, -1), [items]);
   const trailingItem = items.at(-1);
+  const trailingIndex = items.length - 1;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [settledActiveHref, setSettledActiveHref] = useState(activeHref);
   const pillRefs = useRef<Array<HTMLAnchorElement | null>>([]);
@@ -58,6 +60,8 @@ export default function PillNav({
   const indicatorTimelineRef = useRef<gsap.core.Timeline | null>(null);
   const hasPositionedIndicator = useRef(false);
 
+
+  //Scroll spy effect, positions indicator to current active section
   useLayoutEffect(() => {
     const navItems = navItemsRef.current;
     const indicator = activeIndicatorRef.current;
@@ -94,6 +98,8 @@ export default function PillNav({
     } else {
       const { x, width } = getTargetBounds();
       indicatorTimelineRef.current?.kill();
+
+      //Preventing a text color flash while the pill slides over to the active section
       const timeline = gsap.timeline();
       timeline.to(indicator, { x, width, duration: scrollSpyPillAnimationDuration, ease: scrollSpyEase, overwrite: "auto" }, 0);
       timeline.call(() => setSettledActiveHref(undefined), undefined, scrollSpyPillAnimationDuration * 0.42);
@@ -210,12 +216,12 @@ export default function PillNav({
             className={styles.trailingPill}
             href={trailingItem.href}
             aria-label={trailingItem.ariaLabel}
-            onMouseEnter={() => animateLabel(items.length - 1, true)}
-            onMouseLeave={() => animateLabel(items.length - 1, false)}
-            onClick={() => animateLabel(items.length - 1, false)}
+            onMouseEnter={() => animateLabel(trailingIndex, true)}
+            onMouseLeave={() => animateLabel(trailingIndex, false)}
+            onClick={() => animateLabel(trailingIndex, false)}
           >
             <span className={styles.labelStack}>
-              <span className={styles.pillLabel} ref={(element) => { labelRefs.current[items.length - 1] = element; }}>
+              <span className={styles.pillLabel} ref={(element) => { labelRefs.current[trailingIndex] = element; }}>
                 {trailingItem.label}
               </span>
             </span>
