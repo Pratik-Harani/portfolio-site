@@ -7,7 +7,6 @@
   --paper: #ffffff;
   --paper-deep: #f9f9f9;
   --blue: #82c3f8;
-  --light-blue: #82c3f8;
   --line: rgba(62, 78, 80, 0.18);
   --font-display: "Futura", "Trebuchet MS", Helvetica, Arial, sans-serif;
   --font-body: Helvetica, Arial, sans-serif;
@@ -100,7 +99,7 @@ em { color: var(--blue); font-style:normal;}
 .portrait { object-fit: cover; object-position: center 18%; }
 .hero-circle { border: 0px solid rgba(62, 78, 80, .2); border-radius: 50%; display: block; position: absolute; }
 .hero-circle-medium { background: var(--blue); height: clamp(3rem, 6vw, 5.8rem); left: -18%; opacity: .35; top: 18%; width: clamp(3rem, 6vw, 5.8rem); will-change: transform; }
-.hero-circle-small { background: var(--light-blue); bottom: 16%; height: clamp(1rem, 2.25vw, 2.1rem); right: -8%; width: clamp(1rem, 2.25vw, 2.1rem); will-change: transform; }
+.hero-circle-small { background: var(--blue); bottom: 16%; height: clamp(1rem, 2.25vw, 2.1rem); right: -8%; width: clamp(1rem, 2.25vw, 2.1rem); will-change: transform; }
 
 .section { padding: clamp(6rem, 11vw, 10rem) var(--page-padding-x); }
 
