@@ -33,6 +33,6 @@ export function useHeroCirclesAnimation(
     }, heroRef);
 
     return () => ctx.revert(); // cleans up tweens + ScrollTrigger instance
-  }, []);
+  }, [heroRef, largeCircleDistance, largeCircleRef, parallaxAmount, smallCircleDistane, smallCircleRef]);
 }
 

@@ -18,5 +18,5 @@ export function useScrollOpacityReveal(triggerThreshold = 0.12) {
 
     animatedItems.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
-  }, []);
+  }, [triggerThreshold]);
 }
