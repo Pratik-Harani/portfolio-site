@@ -28,7 +28,7 @@ export default function Home() {
   const smallCircleRef = useRef(null)
   
   useHeroCirclesAnimation(heroRef, largeCircleRef, smallCircleRef);
-  let activeSection = useScrollSpy(sectionIds);
+  const activeSection = useScrollSpy(sectionIds);
   useScrollOpacityReveal();
 
   return (
