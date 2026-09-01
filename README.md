@@ -14,8 +14,6 @@ Live at [pratik-harani.is-a.dev/](https://pratik-harani.is-a.dev/)
 ##  Getting Started
 
 ### Prerequisites
-
-- Node.js 18+
 - npm, yarn, pnpm, or bun
 
 ### Installation
