@@ -63,7 +63,7 @@ export const projectsSection = {
 }
 
 export const experienceSection = {
-  headline: "Learning by doing, with good people.",
+  headline: "Places I've been",
   experience: [
   {
     company: "Blueshift Education",
