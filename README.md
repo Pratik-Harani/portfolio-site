@@ -18,14 +18,7 @@ Live at [pratik-harani.is-a.dev/](https://pratik-harani.is-a.dev/)
 
 ### Installation
 
-1. Clone the repository:
-
-```bash
-git clone <repository-url>
-cd portfolio-site
-```
-
-2. Install dependencies:
+1. Install dependencies:
 
 ```bash
 npm install
@@ -37,7 +30,7 @@ pnpm install
 bun install
 ```
 
-3. Run the development server:
+2. Run the development server:
 
 ```bash
 npm run dev
@@ -49,7 +42,7 @@ pnpm dev
 bun dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Contributions
 
