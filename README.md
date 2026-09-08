@@ -14,8 +14,6 @@ Live at [pratik-harani.is-a.dev/](https://pratik-harani.is-a.dev/)
 ##  Getting Started
 
 ### Prerequisites
-
-- Node.js 18+
 - npm, yarn, pnpm, or bun
 
 ### Installation
@@ -24,7 +22,7 @@ Live at [pratik-harani.is-a.dev/](https://pratik-harani.is-a.dev/)
 
 ```bash
 git clone <repository-url>
-cd portfolio-website
+cd portfolio-site
 ```
 
 2. Install dependencies:
