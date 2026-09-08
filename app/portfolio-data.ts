@@ -101,5 +101,5 @@ export const contactSection = {
 export const socialLinks = {
   github: { url: "https://github.com/Pratik-Harani" },
   linkedin: { url: "https://www.linkedin.com/in/pratik-harani/" },
-  cv: { url: "/Pratik Harani CV.pdf" },
+  cv: { url: "/Pratik_Harani_CV.pdf" },
 };
